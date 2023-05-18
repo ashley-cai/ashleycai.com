@@ -22,8 +22,10 @@
     .case-study-labels {
         /* text-align:justify;
         text-align-last:justify; */
-        padding-top: 1vw;
+        padding-top: .5vw;
+        padding-bottom: 15vw;
         display:flex;
         justify-content:space-between;
+        font-size: 1em;
     }
 </style>

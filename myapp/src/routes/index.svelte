@@ -19,4 +19,10 @@
         src: url("/fonts/GT-America-Bold.otf") format("opentype");
     }
 
+    @font-face {
+        font-family: "IBMPlexMono";
+        font-weight: 300;
+        src: url("/fonts/IBMPlexMono-Regular.ttf");
+    }
+
 </style>
