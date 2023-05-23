@@ -1,5 +1,4 @@
 <script>
-    
 </script>
 
 <div id="nav">
@@ -16,6 +15,7 @@
 <slot />
 
 <style> 
+
 #nav {
     top:0;
     position:fixed;

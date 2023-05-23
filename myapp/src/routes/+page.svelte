@@ -6,6 +6,7 @@
 	import {onMount} from 'svelte'
 	import JournalismCard from './JournalismCard.svelte';
     import PlayContainer from './PlayContainer.svelte';
+    import Plants from './Plants.svelte';
     
     onMount(() => {
         // change highlighting for sticky nav section
@@ -57,6 +58,7 @@
 
 </script>
 
+<Plants/>
 <StickyNav/>
 <div id="body">
 <Intro/>
@@ -94,5 +96,9 @@
 
     #product-container {
         padding-bottom: 30vh;
+    }
+
+    :global(canvas) {
+        pointer-events: none;
     }
 </style>

@@ -1,6 +1,6 @@
 <script>
 	import {onMount} from 'svelte'
-    import Letterize from "letterizejs"
+    // import Letterize from "letterizejs"
 
     let letters;
 
@@ -21,10 +21,11 @@
     <div class="intro-text">
         <div class="sentence">Ashley is an experience and information designer studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language, journalism, and the texture of the color green.</div><div class="sentence">Currently at ServiceNow, previously at The Los Angeles Times.</div>
     </div>
-
+    
 </div>
 
 <style>
+
     .intro-section {
         height: 100vh;
     }
