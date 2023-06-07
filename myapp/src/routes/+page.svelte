@@ -17,7 +17,6 @@
             start: 'top center',
             end: 'bottom bottom',
             onLeaveBack: 'reverse',
-            // markers: true,
         })
 
         ScrollTrigger.create({
@@ -26,7 +25,6 @@
             start: 'top center',
             // end: 'bottom bottom',
             onLeaveBack: 'reverse',
-            // markers: true,
         })
 
         //scroll to with sticky nav
