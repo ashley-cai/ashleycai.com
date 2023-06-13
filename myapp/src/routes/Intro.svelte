@@ -4,16 +4,16 @@
 
     let letters;
 
-    onMount(() => {
-        letters = new Letterize({
-            targets: ".intro-text",
-            wrapper: "span"
-            });
+    // onMount(() => {
+    //     letters = new Letterize({
+    //         targets: ".intro-text",
+    //         wrapper: "span"
+    //         });
         
-        for (let i of letters.listAll){
-            i.innerHTML = i.innerHTML.replace(/&nbsp;/g, " ");
-        }
-	})
+    //     for (let i of letters.listAll){
+    //         i.innerHTML = i.innerHTML.replace(/&nbsp;/g, " ");
+    //     }
+	// })
 </script>
 
 <div class="intro-section">

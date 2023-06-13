@@ -4,7 +4,7 @@
 
 <div class="sticky-nav">
     <div class="nav-item" id="product-nav">PRODUCT</div>
-    <div class="nav-item" id="journalism-nav">JOURNALISM</div>
+    <div class="nav-item" id="editorial-nav">EDITORIAL</div>
     <div class="nav-item" id="play-nav">PLAY</div>
 </div>
 

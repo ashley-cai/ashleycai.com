@@ -30,23 +30,6 @@
  */
 
 var isScrolling = false;
-var scrolling = 0;
-
-let branches1;
-let produceNodes1;
-// let branches2;
-// let produceNodes2;
-// let branches3;
-// let produceNodes3;
-
-let branchesArray;
-
-let timeStart = 0;
-let time = 0;
-let alpha = 255;
-
-let canvas = null;
-let ctx = null;
 
 //Colorway 1
 // let PALETTE = {
@@ -59,8 +42,7 @@ let ctx = null;
 let PALETTE = {
   plantGradient: [ [79, 59, 96], [79, 59, 96]],
   plant: [ [79, 75, 43]],
-  leavesOutline: [  [68, 50, 60], [104,  90,  50], [79, 75, 30]],
-  leaves: [  [76, 52, 75], [81,  55,  82], [74, 49, 84]],
+  leaves: [  [68, 50, 60], [104,  90,  50], [79, 75, 30]],
   tomato: [ [10, 80, 100], [30, 96, 100], [70, 50, 90], [50, 50, 90]]
 }
 
@@ -69,26 +51,26 @@ let aspect = window.innerWidth/ window.innerHeight;
 let h = w / aspect;
 const MAX_BRANCH_DEPTH = 2; //can get rid of tomatoes by changing this to 3
 const MIN_THICKNESS = 1;
-const DAVINCI = 0.78;
+const DAVINCI = 0.7;
 
 const INIT_THICKNESS = 10;
 const HEIGHT_PER_INDEX = 20;
 
 const THICKNESS_STEP = 0.1;
-const THICKNESS_JUMP_RATIO = 0.6;
+const THICKNESS_JUMP_RATIO = 0.55
 const HEIGHT_JUMP_RATIO = 0.41;
 const STEM_LENGTH_STEP = 0.5;
-let PADDING = 0;
+const PADDING = 30;
 const MAIN_STEM_WAVE_PROB = 0;
 const BRANCH_ANGLES = [PI / 4, PI / 4, PI/2 - PI/6];
 const SUCKER_BRANCH_ANGLE = PI/3;
 const PRODUCE_INIT_SIZE = {
   fruit: 5,
-  leaf: 11,
+  leaf: 13,
   stem: 5
 };
 
-const FRUIT_PROB = 0.4;
+const FRUIT_PROB = 0.3;
 const SUCKER_PROB = 0.5;
 const BRANCH_PROB = (node) => {
   let { depth } = node;
@@ -135,94 +117,58 @@ const PRODUCE_STEPS = {
   leaf: 1,
 };
 
-function createPlant(xLocation) {
-  let initNode = {
-    x: w * xLocation,
-    y: h,
-    angle: -PI / 2,
-    thickness: INIT_THICKNESS,
-    height: HEIGHT_PER_INDEX,
-    depth: 0,
-    index: 0,
-    numChildren: 0,
-    color: PALETTE.plant[0]
-  };
-  initNode.angle -= PI/30;
-  
-  let rightPlant = {...initNode};
-  rightPlant.x += w/6;
-  rightPlant.angle += PI/12;
-  
-  let leftPlant = {...initNode};
-  leftPlant.x -= w/4;
-  leftPlant.angle += PI/16;
-  
-  let branches = [];
-  branches.push([initNode]);
-  
-  let produceNodes = [];
+let initNode = {
+  x: w / 2,
+  y: h,
+  angle: -PI / 2,
+  thickness: INIT_THICKNESS,
+  height: HEIGHT_PER_INDEX,
+  depth: 0,
+  index: 0,
+  numChildren: 0,
+  color: PALETTE.plant[0]
+};
+initNode.angle -= PI/30;
 
-  // console.log(branches)
-  return [branches, produceNodes];
-}
+let rightPlant = {...initNode};
+rightPlant.x += w/6;
+rightPlant.angle += PI/12;
+
+let leftPlant = {...initNode};
+leftPlant.x -= w/4;
+leftPlant.angle += PI/16;
+
+let branches = [];
+branches.push([initNode]);
+
+let produceNodes = [];
 
 function setup() {
   setupCanvases(w, h);
   if (DEBUG) frameRate(5);
   colorMode(HSB);
-  frameRate(5);
+  frameRate(7);
+
   gradientBackground(PALETTE.plantGradient[1], PALETTE.plantGradient[0]);
-  // smooth();
-
-  setupPlants();
-
-  canvas = document.getElementById("defaultCanvas0");
-  ctx = canvas.getContext("2d");
-  ctx.globalAlpha = 1;
-
-  timeStart = millis();
 }
 
 function draw() {
   clear();
 
-  //Actual drawing
   
-  time = millis();
-  if (!isScrolling) {
-    if (time - timeStart > 5000) {
-      ctx.globalAlpha = 1;
-      drawPlant(branches1, produceNodes1);
-    }
-  } else {
-    if (ctx.globalAlpha > 0) {
-      drawPlant(branches1, produceNodes1);
-      ctx.globalAlpha = ctx.globalAlpha - .2
-      if (ctx.globalAlpha <= .01) {
-        console.log(isScrolling)
-        // Run the callback
-        setupPlants();
-        isScrolling = false;
-        timeStart = millis();
-        // console.log(time)
-      }
-  }
-}
+  //Actual drawing
+  //noiseBackground();
 
-  drawCanvases();
-}
-
-function drawPlant(branchesArray, produceNodesArray) {
   //Draw each node
   
-  branchesArray.forEach((branch) =>
+  branches.forEach((branch) =>
     branch.forEach((node) => {
       let branchPoly = branchToPoly(branch);
       let strokeMe =  { lrStroke: branchPoly.lrStroke, strokeFill: node.color }
       mPoly(branchPoly.bounds, strokeMe, branchPoly.size);
     })
   );
-  produceNodesArray.forEach((produceNode) => {
+  produceNodes.forEach((produceNode) => {
     let stemPoly = stemToPoly(produceNode.stem);
     let producePoint = stemPoly.stemEnd;
     mPoly(stemPoly.bounds, { strokeFill: produceNode.stem.color, lrStroke: stemPoly.lrStroke}, stemPoly.size);
@@ -238,21 +184,23 @@ function drawPlant(branchesArray, produceNodesArray) {
       });
     } else {
       mPoly(leafToPoly(producePoint, produceNode), {
-        strokeFill: produceNode.outline,
-        foregroundFill: [produceNode.color[0], produceNode.color[1] ,  produceNode.color[2], 70],
+        strokeFill: produceNode.color,
+        foregroundFill: [produceNode.color[0], produceNode.color[1] ,  produceNode.color[2], 30],
       });
     }
   });
 
   //Do the next one
-  plant(branchesArray, produceNodesArray);
+  plant();
+
+  drawCanvases();
 }
 
-function plant(branchesArray, produceNodesArray) {
+function plant() {
   let newBranches = [];
-  let numCurrentBranches = branchesArray.length;
+  let numCurrentBranches = branches.length;
   for (let i = 0; i < numCurrentBranches; i++) {
-    let branch = branchesArray[i];
+    let branch = branches[i];
     let latestNode = branch[branch.length - 1];
     if (latestNode.culled) continue;
     if (!END_REACHED(latestNode) && inBounds(latestNode) ) {
@@ -264,7 +212,7 @@ function plant(branchesArray, produceNodesArray) {
         if (!latestNode.produces) {
           newBranches.push(branchNode(latestNode, branch[0].numChildren));
         } else {
-          produceNodesArray.push(newProduce(latestNode, branch[0].numChildren));
+          produceNodes.push(newProduce(latestNode, branch[0].numChildren));
         }
       } else {
         branch[0].timeSinceBranch = branch[0].timeSinceBranch + 1;
@@ -272,13 +220,13 @@ function plant(branchesArray, produceNodesArray) {
       branch.push(growNode(latestNode));
     } else {
       latestNode.produces = "leaf";
-      produceNodesArray.push(newProduce(latestNode, "final"));
+      produceNodes.push(newProduce(latestNode, "final"));
       latestNode.culled = true;
     }
   }
-  branchesArray.push(...newBranches);
-  for (let i = 0; i < produceNodesArray.length; i++) {
-    growProduce(produceNodesArray[i]);
+  branches.push(...newBranches);
+  for (let i = 0; i < produceNodes.length; i++) {
+    growProduce(produceNodes[i]);
   }
 }
 
@@ -387,22 +335,18 @@ function newProduce(branchNode, produceNumber) {
   }
 
   let produceColor = "white";
-  let leafOutlineColor = "black"
   let size =  PRODUCE_INIT_SIZE[branchNode.produces];
   if (branchNode.produces == "leaf" )  {
     produceColor =  rndArr(PALETTE.leaves);
-    leafOutlineColor =  rndArr(PALETTE.leavesOutline);
     size = size * map(branchNode.thickness, INIT_THICKNESS * THICKNESS_JUMP_RATIO, MIN_THICKNESS, 1, 0.8);
   } else {
     produceColor = branchNode.tomatoColor || PALETTE.tomato[0];
-    leafOutlineColor =  branchNode.tomatoColor || PALETTE.tomato[0];
     size = size * map(branchNode.thickness, INIT_THICKNESS * THICKNESS_JUMP_RATIO, MIN_THICKNESS, 1.1, 0.9);
   }
   
   let produceNode = {
     size: size,
     type: branchNode.produces,
-    outline: leafOutlineColor,
     color: produceColor,
     stem: stem,
   };
@@ -410,16 +354,16 @@ function newProduce(branchNode, produceNumber) {
 }
 
 function growProduce(produceNode) {
-  let maxSize = PRODUCE_MAX_SIZES[produceNode.type](produceNode);
-  let sizeStep = PRODUCE_STEPS[produceNode.type];
-  if (produceNode.size < maxSize) {
-    produceNode.size += sizeStep;
-  }
-
-  if (produceNode.type == "fruit") produceNode.stem.height = produceNode.size;
-  if (produceNode.stem.height <= PRODUCE_MAX_SIZES['stem'](produceNode)) {
-    produceNode.stem.height += STEM_LENGTH_STEP;
-  }
+  // let maxSize = PRODUCE_MAX_SIZES[produceNode.type](produceNode);
+  // let sizeStep = PRODUCE_STEPS[produceNode.type];
+  // if (produceNode.size < maxSize) {
+  //   produceNode.size += sizeStep;
+  // }
+  // //TODO: SHOULD STEM GROW? NAH.
+  // if (produceNode.type == "fruit") produceNode.stem.height = produceNode.size;
+  // if (produceNode.stem.height <= PRODUCE_MAX_SIZES['stem'](produceNode)) {
+  //   produceNode.stem.height += STEM_LENGTH_STEP;
+  // }
     
 }
 
@@ -499,11 +443,6 @@ function inBounds(node) {
   return node.x <= w && node.x > PADDING && node.y <= h && node.y > PADDING;
 }
 
-function setupPlants() {
-  [branches1, produceNodes1] = createPlant(.2 + (Math.random()*.6));
-  // [branches2, produceNodes2] = createPlant(4/5);
-  // [branches3, produceNodes3] = createPlant(1/4);
-}
 
 window.addEventListener('scroll', function ( event ) {
 
@@ -511,18 +450,12 @@ window.addEventListener('scroll', function ( event ) {
 	window.clearTimeout(scrolling);
   isScrolling = true;
 
+	// Set a timeout to run after scrolling ends
+	scrolling = setTimeout(function() {
+    isScrolling = false;
+    console.log(isScrolling)
+		// Run the callback
+		console.log( 'Scrolling has stopped.' );
+	}, 500);
 
-      // // Set a timeout to run after scrolling ends
-      // scrolling = setTimeout(function() {
-  
-      //   isScrolling = false;
-      //   console.log(isScrolling)
-      //   // Run the callback
-    
-      //   setupPlants();
-    
-      //   timeStart = millis();
-      //   // console.log(time)
-      //   ctx.globalAlpha = 1;
-      // }, 500);
 }, false);
