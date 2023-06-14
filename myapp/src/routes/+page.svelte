@@ -7,6 +7,7 @@
 	import EditorialCard from './EditorialCard.svelte';
     import PlayContainer from './PlayContainer.svelte';
     import Plants from './Plants.svelte';
+    import WideImage from './projects/WideImage.svelte';
     
     onMount(() => {
         // change highlighting for sticky nav section
@@ -62,28 +63,24 @@
 <Intro/>
 
     <div id="product-container">
-        <CaseStudyCard imgSrc="cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
-        <CaseStudyCard imgSrc="cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
-        <CaseStudyCard imgSrc="cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
+        <CaseStudyCard imgSrc="cdk-imgs/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" link="/projects/cdk"/>
+        <CaseStudyCard imgSrc="cdk-imgs/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
+        <CaseStudyCard imgSrc="cdk-imgs/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
     </div>
 
     <div id="editorial-container">
-        <EditorialCard img1Src="cdk/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
-        <EditorialCard img1Src="cdk/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
-        <EditorialCard img1Src="cdk/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
+        <EditorialCard img1Src="cdk-imgs/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
+        <EditorialCard img1Src="cdk-imgs/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
+        <EditorialCard img1Src="cdk-imgs/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
     </div>
 
     <div id="play-container">
-        <PlayContainer imgSrc="cdk/TestDrive-cover.png"/>
+        <PlayContainer imgSrc="cdk-imgs/TestDrive-cover.png"/>
     </div>
 
 </div>
 
 <style>
-    :global(html) {
-        font-family: "GTAmerica";
-        background-color:  var(--light-gray);
-    }
 
     #body {
         width: 90vw;

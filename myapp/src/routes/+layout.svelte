@@ -1,20 +1,26 @@
 <script>
+        import index from './index.svelte';
 </script>
 
 <div id="nav">
     <div class="nav" id="name">
-    <div>ASHLEY CAI</div> 
+    <a href="/"><div>ASHLEY CAI</div></a>
     <svg class="symbol" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M8.73751 16.7861C7.66719 11.6492 6.35083 10.3328 1.21391 9.26249C0.928697 9.20294 0.928697 8.79706 1.21391 8.73751C6.35083 7.66719 7.66719 6.35083 8.73751 1.21391C8.79706 0.928697 9.20294 0.928697 9.26249 1.21391C10.3328 6.35083 11.6492 7.66719 16.7861 8.73751C17.0713 8.79706 17.0713 9.20294 16.7861 9.26249C11.6492 10.3328 10.3328 11.6492 9.26249 16.7861C9.20294 17.0713 8.79706 17.0713 8.73751 16.7861Z" fill="#C7F565" stroke="black" stroke-miterlimit="10"/>
         </svg>
     </div>
         
-    <div id="info" class="nav">INFO</div>
+    <a href="/info"><div id="info" class="nav">INFO</div></a>
 </div>
 
 <slot />
 
 <style> 
+
+a {
+    color: var(--black);
+    text-decoration: none;
+}
 
 #nav {
     top:0;
@@ -45,8 +51,14 @@
  .symbol {
     margin-left: .5vw;
  }
+
  #info {
     right: 5vw;
  }
+
+ :global(html) {
+        font-family: "GTAmerica";
+        background-color:  var(--light-gray);
+    }
  
 </style>

@@ -12,8 +12,8 @@
 #idling-plants {
     top:0;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 0vw;
+    height: 0vw;
 }
 
 </style>

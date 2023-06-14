@@ -1,34 +1,7 @@
-/**
- 
- * interface node {
- *    numChildren: number //ONLY FOR FIRST NODE, stores ove time
- *    timeSinceBranch: 0 // ONLY FOR FIRST NODE
- *    type: undefined
- *    depth: number
- *    index: number
- *    produces: "leaf" | "fruit"
- *    x: number,
- *    y: number
- *    angle: number (radians),
- *    thickness: 20, 
- *    height: number,
- 
- * }
- * 
- * interface produceNode {
- *    type: "leaf"  | "fruit",
- *    color: color lol
- *    size: number,
- *    stem: {
- *      x: number,
- *      y: number
-*       height: number,
- *      angle: number,
- *      thickness: number 
- *    }
- * }
- */
 
+console.log(document.URL)
+
+if ( document.URL === "http://localhost:5173/" ) {
 var isScrolling = false;
 var scrolling = 0;
 
@@ -190,7 +163,7 @@ function draw() {
   
   time = millis();
   if (!isScrolling) {
-    if (time - timeStart > 5000) {
+    if (time - timeStart > 8000) {
       ctx.globalAlpha = 1;
       drawPlant(branches1, produceNodes1);
     }
@@ -526,3 +499,4 @@ window.addEventListener('scroll', function ( event ) {
       //   ctx.globalAlpha = 1;
       // }, 500);
 }, false);
+}
