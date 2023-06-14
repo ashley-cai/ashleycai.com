@@ -23,8 +23,8 @@
     .context-section-container {
         display: flex;
         flex-direction: row;
-        padding-top: 5vh;
-        width: 60vw;
+        padding-top: 4vh;
+        width: 50vw;
         margin: auto;
     }
 
@@ -38,7 +38,7 @@
     .my-role-container {
         display: flex;
         flex-direction: row;
-        margin-right: 10vw;
+        margin-right: 8vw;
     }
 
     .context-container {

@@ -8,6 +8,8 @@
 
 <style>
     .wide-img {
+        padding-top: 2vh;
+        padding-bottom: 4vh;
         width: 90vw;
         height: 60vh;
         object-fit: cover;

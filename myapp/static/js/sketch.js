@@ -1,7 +1,6 @@
 
 console.log(document.URL)
 
-if ( document.URL === "http://localhost:5173/" ) {
 var isScrolling = false;
 var scrolling = 0;
 
@@ -499,4 +498,3 @@ window.addEventListener('scroll', function ( event ) {
       //   ctx.globalAlpha = 1;
       // }, 500);
 }, false);
-}

@@ -8,7 +8,8 @@
 
 <style>
     .title {
-        font-size: 3em;
+        font-size: 2.75em;
+        padding-top: 4vh;
     }
 </style>
 
