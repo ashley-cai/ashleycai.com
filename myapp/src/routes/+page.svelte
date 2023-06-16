@@ -64,23 +64,42 @@
 
     <div id="product-container">
         <CaseStudyCard imgSrc="imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" link="/projects/cdk"/>
-        <CaseStudyCard imgSrc="imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
-        <CaseStudyCard imgSrc="imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" />
+        <CaseStudyCard imgSrc="imgs/hack@brown/hack@browncover.png" imgAlt="" title="HACK@BROWN" type="VISUAL AND WEB DESIGN" year="2022" />
+        <CaseStudyCard imgSrc="imgs/flowerpower/uimockup-cover.jpeg" imgAlt="" title="FLOWER POWER" type="PRODUCT DESIGN" year="2020" />
     </div>
 
     <div id="editorial-container">
-        <EditorialCard img1Src="imgs/cdk/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
-        <EditorialCard img1Src="imgs/cdk/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
-        <EditorialCard img1Src="imgs/cdk/TestDrive-cover.png" img1Alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." />
+        <EditorialCard src="imgs/editorial/repowerthewest.mp4" alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" publication="LOS ANGELES TIMES" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." link = "https://www.latimes.com/projects/repowering-the-west/"/>
+        <EditorialCard src="imgs/editorial/ailapoem.mp4" alt="" title="HOW A.I. SEES L.A." type="ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="In this visual poem, we stitched together evocative texts about Los Angeles as a way of articulating our city’s bizarre beauty and uncanny oddities. Then we asked A.I. to imagine them. It’s as weird as you might imagine." link = "https://www.latimes.com/projects/los-angeles-poetry-midjourney-artifical-intelligence-literature/"/>
+        <EditorialCard src="imgs/editorial/brownproperty.mp4" alt="" title="THE EVOLUTION OF THAYER STREET" type="MAPPING, ART DIRECTION, DESIGN, DEVELOPMENT" year="2023" publication="BROWN DAILY HERALD" description="The Herald mapped business turnover on Thayer Street since 2000 through interactive timelines tracing year-by-year history of the street." link="https://projects.browndailyherald.com/2023/03/05/thayer-street-history/"/>
+        <EditorialCard src="imgs/editorial/thayerst.mp4" alt="" title="HOW BROWN'S CAMPUS AND PROPERTY HOLDINGS HAVE CHANGED, FROM 1770 TO TODAY" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="BROWN DAILY HERALD" description="Explore how Brown expanded from two lots between Waterman and George streets to a campus that spans the city of Providence." link="https://projects.browndailyherald.com/2022/12/13/brown-property-footprint/"/>
+        <EditorialCard src="imgs/editorial/aichangeart.mp4" alt="" title="HOW AI-GENERATED ART IS CHANGING THE CONCEPT OF ART ITSELF" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="Artificial-intelligence generated artwork has made vast strides in recent years, but many artists don’t even consider it art. To some, it opens up vast new avenues of creative exploration, and to others, it threatens their livelihoods." link = "https://www.latimes.com/projects/artificial-intelligence-generated-art-ownership-bias-dall-e-midjourney/"/>
     </div>
 
     <div id="play-container">
-        <PlayContainer imgSrc="imgs/cdk/TestDrive-cover.png"/>
+        <PlayContainer imgSrc="imgs/editorial/repoweringthewest"/>
     </div>
 
 </div>
 
 <style>
+
+div#box
+{
+    width: 100px;
+    height: 100px;
+    background-color: #00FF00;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    z-index: 1;
+}
+
+button#emcee
+{
+    position: relative;
+    z-index: 2;   
+}
 
     #body {
         width: 90vw;

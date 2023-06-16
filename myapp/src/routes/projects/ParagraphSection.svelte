@@ -18,9 +18,11 @@
     }
 
     .paragraph {
+        padding-left: 2vw;
+        width: 42vw;
+        float:right;
         display: flex;
         flex-direction: row;
-        width: 42vw;
     }
 
     .paragraph-container {

@@ -14,6 +14,7 @@
     position: fixed;
     width: 0vw;
     height: 0vw;
+    pointer-events: none;
 }
 
 </style>

@@ -25,4 +25,8 @@
         src: url("/fonts/IBMPlexMono-Regular.ttf");
     }
 
+    :global(::selection) {
+        background-color: var(--light-green);
+    }
+
 </style>

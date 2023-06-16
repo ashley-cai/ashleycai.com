@@ -1,39 +1,71 @@
 <script>
-    export let img1Src=""
-    export let img1Alt=""
-    export let img2Src=""
-    export let img2Alt=""
-    export let img3Src=""
-    export let img3Alt=""
+    export let src=""
+    export let alt=""
     export let title=""
     export let type=""
     export let year="2000"
     export let description=""
+    export let publication=""
+    export let link = ""
 </script>
 
 <div class="editorial-card">
     <div class="editorial-label-container">
-        <div class="editorial-card-title">{title}</div>
+
+        <a href={link}>
+            <div class="editorial-card-title-container">
+                <div class="editorial-card-title">{title}                 
+                    <svg class="arrow-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 19.5L19.5 1M19.5 1H5M19.5 1V15" stroke="black"/>
+                </svg></div>
+
+            </div>
+        </a>
+            
+        <div class="editorial-card-pub">{publication}</div>
         <div class="editorial-card-description">{description}</div>
         <div class="editorial-card-type">{type}</div>
     </div>
-    <img class="editorial-img1" src={img1Src} alt={img1Alt}>
+    <video class="editorial-video-loop" autoplay muted loop>
+        <source src={src} type="video/mp4">
+        <track kind="captions">
+    </video>
 </div>
 
 <style>
     .editorial-card {
         display: flex;
+        max-height: 20vw;
+        margin-bottom: 16vh;
     }
 
+    .arrow-icon {
+        width: 16px;
+        height: 16px;
+        padding-left: .5vw;
+    }
+    .editorial-card-title-container {
+        display: flex;
+        /* justify-content: center; */
+        flex-direction: row;
+        align-items: center;
+    }
     .editorial-label-container {
         /* text-align:justify;
         text-align-last:justify; */
         padding-top: .5vw;
-        padding-bottom: 15vw;
         width: 40vw;
+    }
+    .editorial-card-pub {
+        font-size: 1em;
+        margin-top: 5px;
     }
     .editorial-card-title {
         font-size: 1.4em;
+        color: var(--black);
+    }
+    a {
+        text-decoration: none !important;
     }
     .editorial-card-description {
         font-size: 1em;
@@ -46,9 +78,11 @@
         margin-top: 5px;
     }
 
-    .editorial-img1 {
+    .editorial-video-loop {
         display: block;
         max-height:20vw;
+        widows:10vw;
+        object-fit: cover;
         width: auto;
         margin-left: auto;
     }

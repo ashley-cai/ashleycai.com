@@ -11,7 +11,7 @@
         padding-top: 2vh;
         padding-bottom: 4vh;
         width: 90vw;
-        height: 60vh;
+        height: 70vh;
         object-fit: cover;
     }
 </style>

@@ -32,13 +32,13 @@
         font-family: GTAmerica-Bold;
         font-size: .8em;
         margin-top: .2vh;
-        width: 8vw;
+        width: 10vw;
     }
 
     .my-role-container {
         display: flex;
         flex-direction: row;
-        margin-right: 8vw;
+        margin-right: 4vw;
     }
 
     .context-container {
