@@ -1,8 +1,11 @@
-
+<script>
+        import { base } from '$app/paths';
+</script>
 <div id="idling-plants">
-    <script src="/js/utils.js"></script>
-    <script src="/js/draw.js"></script>
-    <script src="/js/sketch.js"></script>
+    <script src="{base}/js/utils.js"></script>
+    <script src="{base}/js/draw.js"></script>
+    <script src="{base}/js/sketch.js"></script>
+
 </div>
 
 

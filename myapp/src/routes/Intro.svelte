@@ -1,5 +1,6 @@
 <script>
 	import {onMount} from 'svelte'
+    import {base} from '$app/paths';
     // import Letterize from "letterizejs"
 
     let letters;
@@ -41,7 +42,7 @@
     
     <div class="hero intro-text">
         <div class="sentence">Ashley is an experience and information designer studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language, journalism, and the texture of the color green.</div><div class="sentence2">Currently at ServiceNow, previously at The Los Angeles Times.</div>
-        <script src="/js/dance.js" defer></script>
+        <script src="{base}/js/dance.js" defer></script>
     </div>
     
 </div>
