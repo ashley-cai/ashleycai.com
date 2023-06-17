@@ -1,5 +1,7 @@
 <script>
         import index from './index.svelte';
+        import { base } from '$app/paths';
+
 </script>
 
 <div id="nav">
@@ -10,7 +12,7 @@
         </svg>
     </div>
         
-    <a href="/info"><div id="info" class="nav">INFO</div></a>
+    <a href="{base}/info"><div id="info" class="nav">INFO</div></a>
 </div>
 
 <slot />

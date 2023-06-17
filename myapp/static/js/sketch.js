@@ -162,7 +162,7 @@ function draw() {
   
   time = millis();
   if (!isScrolling) {
-    if (time - timeStart > 12000) {
+    if (time - timeStart > 24000) {
       ctx.globalAlpha = 1;
       drawPlant(branches1, produceNodes1);
     }

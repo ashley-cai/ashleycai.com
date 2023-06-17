@@ -1,4 +1,4 @@
 <script>
-    export let img1Srcs=""
+    export let img1Src=""
     
 </script>
