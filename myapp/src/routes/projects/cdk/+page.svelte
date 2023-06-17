@@ -1,16 +1,18 @@
 <script>
-	import TitleText from "../TitleText.svelte";
+    import TitleText from "../TitleText.svelte";
 	import WideImage from "../WideImage.svelte";
     import ContextSection from "../ContextSection.svelte";
 	import ParagraphSection from "../ParagraphSection.svelte";
 	import InlineImage from "../InlineImage.svelte";
 	import Video from "../Video.svelte";
+    import { base } from '$app/paths';
+    
 </script>
 
 <div class="page-content">
 <TitleText title="CDK Global: Remote Test Drive Booking App"></TitleText>
 
-<WideImage imgSrc="/imgs/cdk/TestDrive-cover.png" imgAlt=""></WideImage>
+<WideImage imgSrc="{base}/imgs/cdk/TestDrive-cover.png" imgAlt=""></WideImage>
 
 <ContextSection>
     <div slot="myRole">
@@ -45,7 +47,7 @@
     </div>
 </ParagraphSection>
 
-<InlineImage imgSrc="/imgs/cdk/Design-Process-Flow.png" imgAlt=""> </InlineImage>
+<InlineImage imgSrc="{base}/imgs/cdk/Design-Process-Flow.png" imgAlt=""> </InlineImage>
 
 <ParagraphSection sectionLabel="FOCUS">
     <div slot="paragraph">
@@ -67,7 +69,7 @@
     </div>
 </ParagraphSection>
 
-<InlineImage imgSrc="/imgs/cdk/CompetitiveAnalysis.png" imgAlt="" caption="A small snapshot of the collaborative Miro board we used to compile research."> </InlineImage>
+<InlineImage imgSrc="{base}/imgs/cdk/CompetitiveAnalysis.png" imgAlt="" caption="A small snapshot of the collaborative Miro board we used to compile research."> </InlineImage>
 
 <ParagraphSection sectionLabel="PERSONAS">
     <div slot="paragraph">
@@ -75,7 +77,7 @@
     </div>
 </ParagraphSection>
 
-<InlineImage imgSrc="/imgs/cdk/Customer.png" imgAlt="" caption="Several of the personas we created to help create a suitable solution."> </InlineImage>
+<InlineImage imgSrc="{base}/imgs/cdk/Customer.png" imgAlt="" caption="Several of the personas we created to help create a suitable solution."> </InlineImage>
 
 <ParagraphSection sectionLabel="IDEATION">
     <div slot="paragraph">
@@ -89,7 +91,7 @@
     </div>
 </ParagraphSection>
 
-<WideImage imgSrc="/imgs/cdk/Mid-Fidelity.png" imgAlt=""></WideImage>
+<WideImage imgSrc="{base}/imgs/cdk/Mid-Fidelity.png" imgAlt=""></WideImage>
 
 <ParagraphSection sectionLabel="PROTOTYPES">
     <div slot="paragraph">
@@ -121,7 +123,7 @@
     </div>
 </ParagraphSection>
 
-<Video src="/imgs/cdk/media1.mp4" title="HIGH FIDELITY PROTOTYPE"></Video>
+<Video src="{base}/imgs/cdk/media1.mp4" title="HIGH FIDELITY PROTOTYPE"></Video>
 
 <ParagraphSection sectionLabel="REFLECTION">
     <div slot="paragraph">
@@ -131,7 +133,7 @@
     </div>
 </ParagraphSection>
 
-<img class="gif" src="/imgs/cdk/car-confirmation-1-min.gif">
+<img class="gif" src="{base}/imgs/cdk/car-confirmation-1-min.gif">
 
 </div>
 

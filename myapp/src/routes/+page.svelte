@@ -8,6 +8,8 @@
     import PlayContainer from './PlayContainer.svelte';
     import Plants from './Plants.svelte';
     import WideImage from './projects/WideImage.svelte';
+    import { base } from '$app/paths';
+
     
     onMount(() => {
         // change highlighting for sticky nav section
@@ -71,7 +73,7 @@
 <Intro/>
 
     <div id="product-container">
-        <CaseStudyCard imgSrc="imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" link="/projects/cdk"/>
+        <CaseStudyCard imgSrc="imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL INTERNSHIP" type="PRODUCT DESIGN" year="2022" link="{base}/projects/cdk"/>
         <CaseStudyCard imgSrc="imgs/hack@brown/hack@browncover.png" imgAlt="" title="HACK@BROWN" type="VISUAL AND WEB DESIGN" year="2022" />
         <CaseStudyCard imgSrc="imgs/flowerpower/uimockup-cover.jpeg" imgAlt="" title="FLOWER POWER" type="PRODUCT DESIGN" year="2020" />
     </div>
@@ -83,32 +85,14 @@
         <EditorialCard src="imgs/editorial/thayerst-small.mp4" alt="" title="HOW BROWN'S CAMPUS AND PROPERTY HOLDINGS HAVE CHANGED, FROM 1770 TO TODAY" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="BROWN DAILY HERALD" description="Explore how Brown expanded from two lots between Waterman and George streets to a campus that spans the city of Providence." link="https://projects.browndailyherald.com/2022/12/13/brown-property-footprint/"/>
         <EditorialCard src="imgs/editorial/aichangeart-small.mp4" alt="" title="HOW AI-GENERATED ART IS CHANGING THE CONCEPT OF ART ITSELF" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="Artificial-intelligence generated artwork has made vast strides in recent years, but many artists don’t even consider it art. To some, it opens up vast new avenues of creative exploration, and to others, it threatens their livelihoods." link = "https://www.latimes.com/projects/artificial-intelligence-generated-art-ownership-bias-dall-e-midjourney/"/>
     </div>
-
+<!-- 
     <div id="play-container">
         <PlayContainer imgSrc="imgs/editorial/repoweringthewest"/>
-    </div>
+    </div> -->
 
 </div>
 
 <style>
-
-div#box
-{
-    width: 100px;
-    height: 100px;
-    background-color: #00FF00;
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    z-index: 1;
-}
-
-button#emcee
-{
-    position: relative;
-    z-index: 2;   
-}
-
     #body {
         width: 90vw;
         margin: auto;
