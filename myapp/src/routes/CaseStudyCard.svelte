@@ -11,9 +11,9 @@
     <a href = "{link}">
         <img class="case-study-img" src={imgSrc} alt={imgAlt}>
         <div class="case-study-labels">
-            <div>{title}</div>
-            <div>{type}</div>
-            <div>{year}</div>
+            <div class="case-study-label-text">{title}</div>
+            <div class="case-study-label-text">{type}</div>
+            <div class="case-study-label-text">{year}</div>
         </div>
     </a>
 </div>
@@ -36,5 +36,10 @@
         display:flex;
         justify-content:space-between;
         font-size: 1em;
+    }
+    @media (max-width: 800px) {
+        .case-study-label-text {
+            font-size: .8em;
+        }
     }
 </style>

@@ -61,11 +61,7 @@
 
 <ParagraphSection sectionLabel="RESEARCH">
     <div slot="paragraph">
-        Based on internal company studies, we discovered two main things:<br>
-        <div class="indented">
-        1. Test driving the car is one of the main customer needs before purchase. However, the pandemic made test driving much more difficult.<br>
-        2. Customers do not enjoy the in-person car purchasing process, and companies were shifting to streamlined online car purchasing experiences even before the pandemic.<br>
-        </div>
+        We decided to build a solution to the temporary issue of in-person test driving that also served as a proof of concept for an entirely digital experience of purchasing a car.
     </div>
 </ParagraphSection>
 

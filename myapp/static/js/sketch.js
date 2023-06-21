@@ -161,24 +161,25 @@ function draw() {
   //Actual drawing
   
   time = millis();
-  if (!isScrolling) {
-    if (time - timeStart > 24000) {
-      ctx.globalAlpha = 1;
-      drawPlant(branches1, produceNodes1);
-    }
-  } else {
-    if (ctx.globalAlpha > 0) {
-      drawPlant(branches1, produceNodes1);
-      ctx.globalAlpha = ctx.globalAlpha - .2
-      if (ctx.globalAlpha <= .01) {
-        console.log(isScrolling)
-        // Run the callback
-        setupPlants();
-        isScrolling = false;
-        timeStart = millis();
-        // console.log(time)
+  if (time - timeStart > 24000) {
+    if (!isScrolling) {
+        ctx.globalAlpha = 1;
+        drawPlant(branches1, produceNodes1);
+    } else {
+      if (ctx.globalAlpha > 0) {
+        drawPlant(branches1, produceNodes1);
+        ctx.globalAlpha = ctx.globalAlpha - .2
+        if (ctx.globalAlpha <= .01) {
+          console.log(isScrolling)
+          // Run the callback
+          setupPlants();
+          isScrolling = false;
+          timeStart = millis();
+          // console.log(time)
       }
+    }
   }
+
 }
 
   drawCanvases();

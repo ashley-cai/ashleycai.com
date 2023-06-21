@@ -20,6 +20,11 @@
 </div>
 
 <style>
+    @media (max-width: 800px) {
+        .context-section-container {
+            width: 90vw !important;
+        }
+    }
     .context-section-container {
         display: flex;
         flex-direction: row;
@@ -28,6 +33,11 @@
         margin: auto;
     }
 
+    @media (max-width: 800px) {
+        .section-label {
+        width: 40vw !important;
+        }  
+    }
     .section-label {
         font-family: GTAmerica-Bold;
         font-size: .8em;
@@ -35,12 +45,22 @@
         width: 10vw;
     }
 
+    @media (max-width: 800px) {
+        .my-role-container {
+            flex-direction: column !important;
+        }
+    }
     .my-role-container {
         display: flex;
         flex-direction: row;
         margin-right: 4vw;
     }
 
+    @media (max-width: 800px) {
+        .context-container {
+            flex-direction: column !important;
+        }
+    }
     .context-container {
         display: flex;
         flex-direction: row;

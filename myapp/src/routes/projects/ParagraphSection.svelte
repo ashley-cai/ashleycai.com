@@ -17,6 +17,13 @@
         width: 8vw;
     }
 
+
+    @media (max-width: 800px) {
+        .paragraph {
+            width: 90vw !important;
+            padding-left: 0vw !important;
+        }
+    }
     .paragraph {
         padding-left: 2vw;
         width: 42vw;
@@ -25,6 +32,12 @@
         flex-direction: row;
     }
 
+    @media (max-width: 800px) {
+        .paragraph-container {
+            flex-direction: column !important;
+            width: 90vw !important;
+        }
+    }
     .paragraph-container {
         display: flex;
         flex-direction: row;

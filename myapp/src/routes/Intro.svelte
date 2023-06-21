@@ -43,6 +43,11 @@
     <div class="hero intro-text">
         <div class="sentence">Ashley is an experience and information designer studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language, journalism, and the texture of the color green.</div><div class="sentence2">Currently at ServiceNow, previously at The Los Angeles Times.</div>
         <script src="{base}/js/dance.js" defer></script>
+        <div class="link-container">
+            <a class="link" href="mailto:ashley.lcai@gmail.com" target="_blank">Email</a> 
+            <a class="link " href="https://linkedin.com/in/ashley-cai" target="_blank">Linkedin</a> 
+            <a class="link " href="https://twitter.com/afishley_png" target="_blank">Twitter</a>
+        </div>
     </div>
     
 </div>
@@ -67,13 +72,15 @@
         margin-bottom: 2vw;
     }
 
-    /* @media screen and (max-width: 599px) h1 br {
-        content: " ";
-    } */
-
-    :global(.n7) {
-        top: 0px;
-        left: 0px; 
+    .link-container {
+        margin-top: 8vh;
     }
+
+    .link {
+        color: var(--medium-gray);
+        text-decoration: none;
+        margin-right: 4vw;
+    }
+
     
 </style>

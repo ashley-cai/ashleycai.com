@@ -2,20 +2,33 @@
     export let imgSrc=""
     export let imgAlt=""
     export let caption = ""
+    export let classes=""
     import index from "../index.svelte";
 
 </script>
 
 <div class="inline-img-container">
-    <img class="wide-img" src={imgSrc} alt={imgAlt}>
+    <img class="inline-img {classes}" src={imgSrc} alt={imgAlt}>
     <div class="img-caption">{caption}</div>
 </div>
 
 <style>
+
+    @media (max-width: 800px) {
+        .inline-img {
+            width: 90vw !important;
+        }  
+    }
     .wide-img {
         width: 50vw;
         max-height: 40vh;
         object-fit: cover;
+    }
+
+    @media (max-width: 800px) {
+        .inline-img-container {
+            width: 90vw !important;
+        }  
     }
     .inline-img-container {
         padding-top: 4vh;
