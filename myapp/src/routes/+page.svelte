@@ -117,8 +117,10 @@
     </div>
 
     <div id="play-container">
-        <!-- <PlayContainer imgSrc="imgs/editorial/repoweringthewest"/> -->
+        <PlayContainer/>
     </div>
+
+    <div class="footer">Site developed with love and Svelte. <br> Heavily inspired by <a href = "https://taliacotton.com/">Talia Cotton</a> and <a href="https://softnet.works/">Bhavik Singh</a>. </div>
 
 </div>
 
@@ -136,5 +138,15 @@
 
     :global(canvas) {
         pointer-events: none;
+    }
+
+    .footer {
+        margin-top: 20vh;
+        text-align: center;
+    }
+    
+    a {
+        text-decoration: none !important;
+        color: var(--black);
     }
 </style>

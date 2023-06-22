@@ -46,7 +46,7 @@
         <div class="link-container">
             <a class="link" href="mailto:ashley.lcai@gmail.com" target="_blank">Email</a> 
             <a class="link " href="https://linkedin.com/in/ashley-cai" target="_blank">Linkedin</a> 
-            <a class="link " href="https://twitter.com/afishley_png" target="_blank">Twitter</a>
+            <a class="link " href="https://github.com/ashley-cai" target="_blank">Github</a>
         </div>
     </div>
     

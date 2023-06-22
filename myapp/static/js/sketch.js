@@ -176,7 +176,7 @@ function draw() {
           isScrolling = false;
           timeStart = millis();
           // console.log(time)
-      }
+        }
     }
   }
 
