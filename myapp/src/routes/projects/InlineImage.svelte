@@ -19,7 +19,7 @@
             width: 90vw !important;
         }  
     }
-    .wide-img {
+    .inline-img {
         width: 50vw;
         max-height: 40vh;
         object-fit: cover;
