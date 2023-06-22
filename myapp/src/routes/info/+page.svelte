@@ -66,7 +66,7 @@
         }
     }
     .info-img {
-        width: 50vw;
+        width: 40vw;
         height: 80vh;
         object-fit: cover;
     }
@@ -89,6 +89,7 @@
         width: 50vw;
         margin: auto;
         padding-left: 4vw;
+        max-width: 800px;
     }
     .indented {
         padding-left: 2vw;

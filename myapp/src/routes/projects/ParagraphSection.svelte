@@ -43,8 +43,8 @@
         flex-direction: row;
         width: 50vw;
         margin: auto;
-        margin-top: 8vh;
-        margin-bottom: 8vh;
+        margin-top: 6vh;
+        margin-bottom: 6vh;
 
     }
 </style>

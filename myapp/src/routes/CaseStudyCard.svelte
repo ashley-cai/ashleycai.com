@@ -41,7 +41,7 @@
     }
     @media (max-width: 800px) {
         .case-study-label-text {
-            font-size: .8em;
+            font-size: 1em;
         }
     }
 </style>

@@ -61,11 +61,17 @@
     .intro-section {
         height: 100vh;
     }
+
+    @media (max-width: 800px) {
+        .intro-text {
+            font-size: 1.75em !important;
+        }
+    }
     .intro-text {
         display: block;
-        font-size: 1.6em;
+        font-size: 2em;
         width: 90vw;
-        max-width: 720px;
+        max-width: 900px;
         white-space: pre-line;
     }
     .sentence {
