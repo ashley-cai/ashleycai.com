@@ -163,10 +163,12 @@ function draw() {
   time = millis();
   if (time - timeStart > 24000) {
     if (!isScrolling) {
+        frameRate(5);
         ctx.globalAlpha = 1;
         drawPlant(branches1, produceNodes1);
     } else {
       if (ctx.globalAlpha > 0) {
+        frameRate(100);
         drawPlant(branches1, produceNodes1);
         ctx.globalAlpha = ctx.globalAlpha - .2
         if (ctx.globalAlpha <= .01) {
