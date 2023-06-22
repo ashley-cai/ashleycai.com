@@ -144,6 +144,11 @@
         margin-top: 20vh;
         text-align: center;
     }
+
+    :global(a:hover) {
+        color: var(--black) !important;
+        text-shadow: 0 0 5px var(--light-green);
+    }
     
     a {
         text-decoration: none !important;

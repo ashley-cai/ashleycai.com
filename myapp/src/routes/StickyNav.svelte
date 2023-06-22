@@ -49,6 +49,10 @@
         color: var(--medium-gray);
         cursor: pointer;
     }
+    .nav-item:hover {
+            color: var(--black) !important;
+            text-shadow: 0 0 5px var(--light-green);
+        }
 
     .nav-mobile {
         display: none;

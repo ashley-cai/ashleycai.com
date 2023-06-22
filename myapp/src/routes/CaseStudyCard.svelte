@@ -19,6 +19,9 @@
 </div>
 
 <style>
+    .case-study-card {
+        padding-bottom: 15vw;
+    }
     a {
         color: var(--black);
         text-decoration: none;
@@ -32,7 +35,6 @@
         /* text-align:justify;
         text-align-last:justify; */
         padding-top: .5vw;
-        padding-bottom: 15vw;
         display:flex;
         justify-content:space-between;
         font-size: 1em;
