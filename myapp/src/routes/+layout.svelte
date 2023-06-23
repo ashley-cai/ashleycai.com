@@ -29,7 +29,7 @@ a {
     width: 100%;
     height: 16vh;
     position:fixed;
-    background-color: var(--light-gray);
+    background-color: white;
     --mask: linear-gradient(to bottom, 
       rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 60%, 
       rgba(0,0,0, 0) 95%, rgba(0,0,0, 0) 0
@@ -59,7 +59,7 @@ a {
 
  :global(html) {
         font-family: "GTAmerica";
-        background-color:  var(--light-gray);
+        background-color: white;
     }
  
 </style>

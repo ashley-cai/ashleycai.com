@@ -57,7 +57,7 @@
 
 
     .intro-section {
-        height: 100vh;
+        height: 80vh;
     }
 
     @media (max-width: 800px) {
@@ -72,8 +72,9 @@
         max-width: 800px;
         white-space: pre-line;
     }
+
     .sentence {
-        margin-bottom: 2vw;
+        margin-bottom: 4vh;
     }
 
     .link-container {
