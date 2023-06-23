@@ -1,6 +1,3 @@
-
-console.log(document.URL)
-
 var isScrolling = false;
 var scrolling = 0;
 
@@ -161,7 +158,7 @@ function draw() {
   //Actual drawing
   
   time = millis();
-  if (time - timeStart > 24000) {
+  if (time - timeStart > 30000) {
     if (!isScrolling) {
         frameRate(5);
         ctx.globalAlpha = 1;
@@ -172,7 +169,7 @@ function draw() {
         drawPlant(branches1, produceNodes1);
         ctx.globalAlpha = ctx.globalAlpha - .2
         if (ctx.globalAlpha <= .01) {
-          console.log(isScrolling)
+          // console.log(isScrolling)
           // Run the callback
           setupPlants();
           isScrolling = false;
@@ -485,19 +482,9 @@ window.addEventListener('scroll', function ( event ) {
 	// Clear our timeout throughout the scroll
 	window.clearTimeout(scrolling);
   isScrolling = true;
-
-
-      // // Set a timeout to run after scrolling ends
-      // scrolling = setTimeout(function() {
-  
-      //   isScrolling = false;
-      //   console.log(isScrolling)
-      //   // Run the callback
-    
-      //   setupPlants();
-    
-      //   timeStart = millis();
-      //   // console.log(time)
-      //   ctx.globalAlpha = 1;
-      // }, 500);
 }, false);
+
+document.addEventListener('click', function(event){
+  console.log("HELLO")
+  isScrolling = true;
+});

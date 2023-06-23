@@ -1,4 +1,4 @@
-import{S as ye,i as be,s as we,k as s,y as W,a as _,l as o,m as O,z as L,c as I,h as b,n as V,L as ve,b as C,A as U,F as t,g as j,d as x,B as H,q as c,r as g,J as M}from"../chunks/index.f5cfb2c1.js";import{T as _e,W as $e,C as Ie,P as J,I as ee}from"../chunks/Video.svelte_svelte_type_style_lang.3f7623d4.js";import{b as Z}from"../chunks/paths.dabdb341.js";function Re(S){let e,h,l,i,$,d;return{c(){e=s("div"),h=c("User Research"),l=s("br"),i=c(`
+import{S as ye,i as be,s as we,k as s,y as W,a as _,l as o,m as O,z as L,c as I,h as b,n as V,L as ve,b as C,A as U,F as t,g as j,d as x,B as H,q as c,r as g,J as M}from"../chunks/index.f5cfb2c1.js";import{T as _e,W as $e,C as Ie,P as J,I as ee}from"../chunks/Video.svelte_svelte_type_style_lang.752cef28.js";import{b as Z}from"../chunks/paths.452da012.js";function Re(S){let e,h,l,i,$,d;return{c(){e=s("div"),h=c("User Research"),l=s("br"),i=c(`
         UX Design`),$=s("br"),d=c(`
         Visual Design`),this.h()},l(r){e=o(r,"DIV",{slot:!0});var p=O(e);h=g(p,"User Research"),l=o(p,"BR",{}),i=g(p,`
         UX Design`),$=o(p,"BR",{}),d=g(p,`

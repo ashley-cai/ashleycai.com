@@ -22,7 +22,7 @@ interface PrefType {
 
 
 function setupCanvases(w = windowWidth,h = windowHeight) {
-  console.log(windowWidth, windowHeight)
+  // console.log(windowWidth, windowHeight)
   const rw = w;
   const rh = h;
   if (DEBUG) createCanvas(rw * 3, rh);
