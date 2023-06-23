@@ -129,7 +129,7 @@
     </div>
 </ParagraphSection>
 
-<img class="gif" src="{base}/imgs/cdk/car-confirmation-1-min.gif">
+<img loading="lazy" class="gif" src="{base}/imgs/cdk/car-confirmation-1-min.gif">
 
 </div>
 

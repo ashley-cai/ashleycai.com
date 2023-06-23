@@ -9,7 +9,7 @@
 
 <div class="case-study-card">
     <a href = "{link}">
-        <img class="case-study-img" src={imgSrc} alt={imgAlt}>
+        <img class="case-study-img" loading="lazy" src={imgSrc} alt={imgAlt}>
         <div class="case-study-labels">
             <div class="case-study-label-text">{title}</div>
             <div class="case-study-label-text">{type}</div>

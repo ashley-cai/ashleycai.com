@@ -26,7 +26,7 @@
         <div class="editorial-card-description">{description}</div>
         <div class="editorial-card-type">{type}</div>
     </div>
-    <video class="editorial-video-loop" autoplay muted loop>
+    <video class="editorial-video-loop" autoplay loop muted webkit-playsinline playsinline>
         <source src={src} type="video/mp4">
         <track kind="captions">
     </video>

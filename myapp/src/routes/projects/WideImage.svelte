@@ -4,7 +4,7 @@
     export let imgAlt=""
 </script>
 
-<img class="wide-img" src={imgSrc} alt={imgAlt}>
+<img loading="lazy" class="wide-img" src={imgSrc} alt={imgAlt}>
 
 <style>
     .wide-img {

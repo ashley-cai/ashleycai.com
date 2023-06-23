@@ -7,7 +7,7 @@
 <div class="page-content">
 
     <div class="info-container">
-        <img class="info-img" src="{base}/imgs/info/ashley.jpg" alt="">
+        <img loading="lazy" class="info-img" src="{base}/imgs/info/ashley.jpg" alt="">
 
         <div class="info-text">
             Hello! I'm Ashley.

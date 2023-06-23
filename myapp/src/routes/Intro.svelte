@@ -5,8 +5,6 @@
 
     let letters;
     onMount(() => {
-        console.log("test")
-
         let introText = document.querySelector(".sentence"); // Get reference to the h1
         let text = introText.textContent.split("");                 // Get the text content into an array
 
@@ -64,14 +62,14 @@
 
     @media (max-width: 800px) {
         .intro-text {
-            font-size: 1.75em !important;
+            font-size: 1.5em !important;
         }
     }
     .intro-text {
         display: block;
-        font-size: 2em;
+        font-size: 1.8em;
         width: 90vw;
-        max-width: 900px;
+        max-width: 800px;
         white-space: pre-line;
     }
     .sentence {

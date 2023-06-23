@@ -8,7 +8,7 @@
 </script>
 
 <div class="inline-img-container">
-    <img class="inline-img {classes}" src={imgSrc} alt={imgAlt}>
+    <img loading="lazy" class="inline-img {classes}" src={imgSrc} alt={imgAlt}>
     <div class="img-caption">{caption}</div>
 </div>
 
