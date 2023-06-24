@@ -10,10 +10,6 @@ let produceNodes1;
 
 let branchesArray;
 
-let timeStart = 0;
-let time = 0;
-let alpha = 255;
-
 let canvas = null;
 let ctx = null;
 let produceArrayLength = 10000;
@@ -150,15 +146,18 @@ function setup() {
   ctx = canvas.getContext("2d");
   ctx.globalAlpha = 1;
 
-  timeStart = millis();
+  // timeStart = millis();
+
+  noLoop();
+  setTimeout( function() {
+    loop();
+  }, 30000);
 }
 
 function draw() {
   clear();
   //Actual drawing
   
-  time = millis();
-  if (time - timeStart > 30000) {
     if (!isScrolling) {
 
       if (produceArrayLength == produceNodes1.length && produceNodes1.length > 100 ) {
@@ -179,10 +178,13 @@ function draw() {
           // Run the callback
           setupPlants();
           isScrolling = false;
-          timeStart = millis();
+          noLoop();
+          setTimeout( function() {
+            loop();
+          }, 30000);
+
         }
     }
-  }
 
 }
 
@@ -490,7 +492,6 @@ window.addEventListener('scroll', function ( event ) {
 	window.clearTimeout(scrolling);
   isScrolling = true;
   loop();
-
 }, false);
 
 document.addEventListener('click', function(event){
