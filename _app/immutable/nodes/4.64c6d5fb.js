@@ -1,4 +1,4 @@
-import{S as De,i as Re,s as Ee,k as h,y as R,a as y,l as c,m as x,z as E,c as k,h as b,n as D,L as Be,b as C,A as B,F as t,g as T,d as V,B as W,q as m,r as u,J as P}from"../chunks/index.f5cfb2c1.js";import{T as Te,W as ke,C as Ve,P as L,I as ce}from"../chunks/Video.svelte_svelte_type_style_lang.752cef28.js";import{V as We}from"../chunks/Video.4ea6bbc2.js";import{b as X}from"../chunks/paths.452da012.js";function xe(_){let e,i,r,s,a,d,g,l,f,v;return{c(){e=h("div"),i=m("Research"),r=h("br"),s=m(`
+import{S as De,i as Re,s as Ee,k as h,y as R,a as y,l as c,m as x,z as E,c as k,h as b,n as D,L as Be,b as C,A as B,F as t,g as T,d as V,B as W,q as m,r as u,J as P}from"../chunks/index.f5cfb2c1.js";import{T as Te,W as ke,C as Ve,P as L,I as ce}from"../chunks/Video.svelte_svelte_type_style_lang.752cef28.js";import{V as We}from"../chunks/Video.4ea6bbc2.js";import{b as X}from"../chunks/paths.09adfa70.js";function xe(_){let e,i,r,s,a,d,g,l,f,v;return{c(){e=h("div"),i=m("Research"),r=h("br"),s=m(`
         UI/UX Design`),a=h("br"),d=m(`
         User Testing`),g=h("br"),l=m(`
         Interaction Design`),f=h("br"),v=m(`

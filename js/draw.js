@@ -182,18 +182,3 @@ function drawCanvases() {
 
   resetCanvases();
 }
-
-// function keyPressed() {
-//   if (key == "s") {
-//    saveFrame();
-//   }
-//   if (key == "a") {
-
-//   }
-// };
-
-// function saveFrame() {
-//   let d = new Date();
-//   console.log("saving");
-//   saveCanvas("park" + window.location.pathname + ":" + d.getHours() + "_" + d.getMinutes() + "_" + d.getSeconds() + frameCount, "png");
-// }
