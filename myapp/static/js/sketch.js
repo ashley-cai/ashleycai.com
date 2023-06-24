@@ -158,7 +158,7 @@ function draw() {
   //Actual drawing
   
   time = millis();
-  if (time - timeStart > 1000) {
+  if (time - timeStart > 30000) {
     if (!isScrolling) {
 
       if (produceArrayLength == produceNodes1.length && produceNodes1.length > 100 ) {
