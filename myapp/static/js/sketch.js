@@ -16,6 +16,7 @@ let alpha = 255;
 
 let canvas = null;
 let ctx = null;
+let produceArrayLength = 10000;
 
 //Colorway 1
 // let PALETTE = {
@@ -154,12 +155,17 @@ function setup() {
 
 function draw() {
   clear();
-
   //Actual drawing
   
   time = millis();
-  if (time - timeStart > 30000) {
+  if (time - timeStart > 1000) {
     if (!isScrolling) {
+
+      if (produceArrayLength == produceNodes1.length && produceNodes1.length > 100 ) {
+        noLoop();
+      }
+      produceArrayLength = produceNodes1.length
+
         frameRate(5);
         ctx.globalAlpha = 1;
         drawPlant(branches1, produceNodes1);
@@ -174,7 +180,6 @@ function draw() {
           setupPlants();
           isScrolling = false;
           timeStart = millis();
-          // console.log(time)
         }
     }
   }
@@ -248,7 +253,9 @@ function plant(branchesArray, produceNodesArray) {
       latestNode.culled = true;
     }
   }
+
   branchesArray.push(...newBranches);
+  console.log(branchesArray);
   for (let i = 0; i < produceNodesArray.length; i++) {
     growProduce(produceNodesArray[i]);
   }
@@ -482,9 +489,12 @@ window.addEventListener('scroll', function ( event ) {
 	// Clear our timeout throughout the scroll
 	window.clearTimeout(scrolling);
   isScrolling = true;
+  loop();
+
 }, false);
 
 document.addEventListener('click', function(event){
   console.log("HELLO")
   isScrolling = true;
+  loop();
 });
