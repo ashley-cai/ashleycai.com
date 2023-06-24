@@ -1,4 +1,4 @@
-import{S as de,i as be,s as he,k as a,a as y,q as o,D as oe,l as n,m as g,c as _,r as i,h as v,E as ie,n as r,L as ue,b as pe,F as e,J as ne}from"../chunks/index.f5cfb2c1.js";import{b as ve}from"../chunks/paths.09adfa70.js";/* empty css                                                        */function ge(ce){let d,u,p,re,I,t,R,D,k,x,H,j,E,G,S,A,O,l,T,q,L,V,z,J,M,N,C,U,W,K,F,P,Q,X,Y,Z,$,ee,te,b,se,h,m;return{c(){d=a("div"),u=a("div"),p=a("img"),I=y(),t=a("div"),R=o(`Hello! I'm Ashley.
+import{S as de,i as be,s as he,k as a,a as y,q as o,D as oe,l as n,m as g,c as _,r as i,h as v,E as ie,n as r,L as ue,b as pe,F as e,J as ne}from"../chunks/index.f5cfb2c1.js";import{b as ve}from"../chunks/paths.4976a0f2.js";/* empty css                                                        */function ge(ce){let d,u,p,re,I,t,R,D,k,x,H,j,E,G,S,A,O,l,T,q,L,V,z,J,M,N,C,U,W,K,F,P,Q,X,Y,Z,$,ee,te,b,se,h,m;return{c(){d=a("div"),u=a("div"),p=a("img"),I=y(),t=a("div"),R=o(`Hello! I'm Ashley.
             `),D=a("br"),k=o(`
             I'm a designer with a penchant for code and fun little interactions.
             `),x=a("br"),H=a("br"),j=o(`
