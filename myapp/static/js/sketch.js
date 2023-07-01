@@ -13,6 +13,8 @@ let branchesArray;
 let canvas = null;
 let ctx = null;
 let produceArrayLength = 10000;
+let timestart = 0;
+let time = 0;
 
 //Colorway 1
 // let PALETTE = {
@@ -139,37 +141,38 @@ function setup() {
   frameRate(5);
   gradientBackground(PALETTE.plantGradient[1], PALETTE.plantGradient[0]);
   // smooth();
-
-  setupPlants();
-
+  noLoop();
   canvas = document.getElementById("defaultCanvas0");
   ctx = canvas.getContext("2d");
   ctx.globalAlpha = 1;
-
-  // timeStart = millis();
-
-  noLoop();
-  setTimeout( function() {
-    loop();
-  }, 30000);
+  timeStart = millis();
+  setupPlants();
 }
+
+const interval = setInterval(function() {
+  // method to be executed;
+  time = millis();
+  if (time-timeStart > 30000) {
+    loop();
+  }
+}, 5000);
 
 function draw() {
   clear();
   //Actual drawing
   
     if (!isScrolling) {
-
+      //plant done growing, stop calling draw
       if (produceArrayLength == produceNodes1.length && produceNodes1.length > 100 ) {
         noLoop();
       }
       produceArrayLength = produceNodes1.length
-
         frameRate(5);
         ctx.globalAlpha = 1;
         drawPlant(branches1, produceNodes1);
     } else {
-      if (ctx.globalAlpha > 0) {
+      // if scrolling, make plant disappear
+      if (ctx.globalAlpha > 0 && branches1.length > 0) {
         frameRate(100);
         drawPlant(branches1, produceNodes1);
         ctx.globalAlpha = ctx.globalAlpha - .2
@@ -179,14 +182,10 @@ function draw() {
           setupPlants();
           isScrolling = false;
           noLoop();
-          setTimeout( function() {
-            loop();
-          }, 30000);
-
+          timeStart = millis();
         }
+      }
     }
-
-}
 
   drawCanvases();
 }
@@ -487,15 +486,16 @@ function setupPlants() {
 }
 
 window.addEventListener('scroll', function ( event ) {
-
 	// Clear our timeout throughout the scroll
 	window.clearTimeout(scrolling);
+  timeStart = millis();
   isScrolling = true;
   loop();
 }, false);
 
 document.addEventListener('click', function(event){
   console.log("HELLO")
+  timeStart = millis();
   isScrolling = true;
   loop();
 });
