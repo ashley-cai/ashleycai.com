@@ -12,7 +12,7 @@
         <div class="info-text">
             Hello! I'm Ashley.
             <br>
-            I'm a designer with a penchant for code and fun little interactions.
+            I'm a designer, developer, and journalist with a love for deep diving into topics.
             <br><br>
             I currently study computer science and public policy at Brown University and Graphic Design at the Rhode Island School of Design.
             <br><br>

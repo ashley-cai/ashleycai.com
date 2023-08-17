@@ -94,14 +94,15 @@
 
     @media (max-width: 800px) {
         .editorial-video-loop {
-            width: 90vw !important;
+            max-width: 90vw !important;
             max-height:50vw !important;
             margin-top: 4vh;
         }
     }
     .editorial-video-loop {
         display: block;
-        max-height:20vw;
+        max-width: 40vw;
+        /* max-height:20vw; */
         /* widows:10vw; */
         object-fit: cover;
         width: auto;

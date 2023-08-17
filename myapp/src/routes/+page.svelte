@@ -32,7 +32,7 @@
             trigger: '#editorial-container',
             toggleClass: {targets: "#editorial-nav", className: 'current-section'},
             start: 'top center',
-            // end: 'bottom bottom',
+            end: 'bottom bottom',
             onLeaveBack: 'reverse',
         })
 
@@ -48,7 +48,7 @@
             trigger: '#play-container',
             toggleClass: {targets: "#play-nav", className: 'current-section'},
             start: 'top center',
-            // end: 'bottom bottom',
+            end: 'bottom bottom',
             onLeaveBack: 'reverse',
         })
 
@@ -109,6 +109,7 @@
     <div id="editorial-container">
         <EditorialCard src="{ base }/imgs/editorial/repowerthewest-small.mp4" alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" publication="LOS ANGELES TIMES" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." link = "https://www.latimes.com/projects/repowering-the-west/"/>
         <EditorialCard src="{ base }/imgs/editorial/ailapoem-small.mp4" alt="" title="HOW A.I. SEES L.A." type="ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="In this visual poem, we stitched together evocative texts about Los Angeles as a way of articulating our city’s bizarre beauty and uncanny oddities. Then we asked A.I. to imagine them. It’s as weird as you might imagine." link = "https://www.latimes.com/projects/los-angeles-poetry-midjourney-artifical-intelligence-literature/"/>
+        <EditorialCard src="{ base }/imgs/editorial/songwriters-small.mp4" alt="" title="WOMEN ARE SUPERSTARS ON STAGE, BUT STILL RARELY GET TO WRITE SONGS" type="ART DIRECTION, DESIGN, DEVELOPMENT" publication="THE PUDDING" year="2023" description="Most hit songs are written by all men. How often has a top 5 hit been written by *only* women in the last 10 years? It’s likely rarer than you think." link ="https://pudding.cool/2023/07/songwriters/"/>
         <EditorialCard src="{ base }/imgs/editorial/thayerst-small.mp4" alt="" title="THE EVOLUTION OF THAYER STREET" type="MAPPING, ART DIRECTION, DESIGN, DEVELOPMENT" year="2023" publication="BROWN DAILY HERALD" description="The Herald mapped business turnover on Thayer Street since 2000 through interactive timelines tracing year-by-year history of the street." link="https://projects.browndailyherald.com/2023/03/05/thayer-street-history/"/>
         <EditorialCard src="{ base }/imgs/editorial/brownproperty-small.mp4" alt="" title="HOW BROWN'S CAMPUS AND PROPERTY HOLDINGS HAVE CHANGED, FROM 1770 TO TODAY" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="BROWN DAILY HERALD" description="Explore how Brown expanded from two lots between Waterman and George streets to a campus that spans the city of Providence." link="https://projects.browndailyherald.com/2022/12/13/brown-property-footprint/"/>
         <EditorialCard src="{ base }/imgs/editorial/aichangeart-small.mp4" alt="" title="HOW AI-GENERATED ART IS CHANGING THE CONCEPT OF ART ITSELF" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="Artificial-intelligence generated artwork has made vast strides in recent years, but many artists don’t even consider it art. To some, it opens up vast new avenues of creative exploration, and to others, it threatens their livelihoods." link = "https://www.latimes.com/projects/artificial-intelligence-generated-art-ownership-bias-dall-e-midjourney/"/>
@@ -153,5 +154,9 @@
     a {
         text-decoration: none !important;
         color: var(--black);
+    }
+
+    #play-container{
+        min-height: 300vh;
     }
 </style>

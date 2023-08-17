@@ -4,31 +4,31 @@
 
 <div>
     <section id="photos">
-        <img loading="lazy" src="{base}/imgs/play/grapes.png">
+        <img src="{base}/imgs/play/grapes.png">
       <iframe src="https://www.youtube.com/embed/AEryQFXzebs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <img loading="lazy" src="{base}/imgs/play/frogust.png">
+      <img src="{base}/imgs/play/frogust.png">
       <iframe src="https://www.youtube.com/embed/vpgozSUUgf0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>      <img src="{base}/imgs/play/aquariumbackpack.png">
-      <img loading="lazy" src="{base}/imgs/play/azula.png">
-      <img loading="lazy" src="{base}/imgs/play/birthday_city.png">
-      <img loading="lazy" src="{base}/imgs/play/doodle.png">
-      <img loading="lazy" src="{base}/imgs/play/exhale.png">
-      <img loading="lazy" src="{base}/imgs/play/fish-hand.png">
-      <img loading="lazy" src="{base}/imgs/play/green.jpg">
-      <img loading="lazy" src="{base}/imgs/play/halle.PNG">
-      <img loading="lazy" src="{base}/imgs/play/hulahoop.png">
-      <img loading="lazy" src="{base}/imgs/play/jane!.png">
-      <img loading="lazy" src="{base}/imgs/play/klimtenergy.png">
-      <img loading="lazy" src="{base}/imgs/play/light2.jpg">
-      <img loading="lazy" src="{base}/imgs/play/loreolympus.png">
-      <img loading="lazy" src="{base}/imgs/play/mermaid.jpg">
-      <img loading="lazy" src="{base}/imgs/play/mermay.png">
-      <img loading="lazy"src="{base}/imgs/play/mm.png">
-      <img loading="lazy" src="{base}/imgs/play/mulan.png">
-      <img loading="lazy" src="{base}/imgs/play/sharpblossoms.png">
-      <img loading="lazy" src="{base}/imgs/play/sketchie.png">
-      <a target = "_blank" href = "https://www.webtoons.com/en/challenge/heart-shaped-spaces-h/list?title_no=428396"><img loading="lazy" src="{base}/imgs/play/spaces.jpg"></a>
-      <img loading="lazy" src="{base}/imgs/play/treesdaisies.png">
-      <img loading="lazy" src="{base}/imgs/play/underlights.jpg">
+      <img src="{base}/imgs/play/azula.png">
+      <img src="{base}/imgs/play/birthday_city.png">
+      <img src="{base}/imgs/play/doodle.png">
+      <img src="{base}/imgs/play/exhale.png">
+      <img src="{base}/imgs/play/fish-hand.png">
+      <img src="{base}/imgs/play/green.jpg">
+      <img src="{base}/imgs/play/halle.PNG">
+      <img src="{base}/imgs/play/hulahoop.png">
+      <img src="{base}/imgs/play/jane!.png">
+      <img src="{base}/imgs/play/klimtenergy.png">
+      <img src="{base}/imgs/play/light2.jpg">
+      <img src="{base}/imgs/play/loreolympus.png">
+      <img src="{base}/imgs/play/mermaid.jpg">
+      <img src="{base}/imgs/play/mermay.png">
+      <img src="{base}/imgs/play/mm.png">
+      <img src="{base}/imgs/play/mulan.png">
+      <img src="{base}/imgs/play/sharpblossoms.png">
+      <img src="{base}/imgs/play/sketchie.png">
+      <a target = "_blank" href = "https://www.webtoons.com/en/challenge/heart-shaped-spaces-h/list?title_no=428396"><img src="{base}/imgs/play/spaces.jpg"></a>
+      <img src="{base}/imgs/play/treesdaisies.png">
+      <img src="{base}/imgs/play/underlights.jpg">
 
     </section>
   </div>
