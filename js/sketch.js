@@ -144,7 +144,7 @@ function setup() {
   noLoop();
   canvas = document.getElementById("defaultCanvas0");
   ctx = canvas.getContext("2d");
-  ctx.globalAlpha = 1;
+  ctx.globalAlpha = 0;
   timeStart = millis();
   setupPlants();
 }
@@ -167,9 +167,9 @@ function draw() {
         noLoop();
       }
       produceArrayLength = produceNodes1.length
-        frameRate(5);
-        ctx.globalAlpha = 1;
-        drawPlant(branches1, produceNodes1);
+      frameRate(5);
+      ctx.globalAlpha = 1;
+      drawPlant(branches1, produceNodes1);
     } else {
       // if scrolling, make plant disappear
       if (ctx.globalAlpha > 0 && branches1.length > 0) {
@@ -256,7 +256,7 @@ function plant(branchesArray, produceNodesArray) {
   }
 
   branchesArray.push(...newBranches);
-  console.log(branchesArray);
+  // console.log(branchesArray);
   for (let i = 0; i < produceNodesArray.length; i++) {
     growProduce(produceNodesArray[i]);
   }
@@ -487,15 +487,18 @@ function setupPlants() {
 
 window.addEventListener('scroll', function ( event ) {
 	// Clear our timeout throughout the scroll
-	window.clearTimeout(scrolling);
-  timeStart = millis();
-  isScrolling = true;
-  loop();
+  if (time-timeStart > 30000) {
+    window.clearTimeout(scrolling);
+    timeStart = millis();
+    isScrolling = true;
+    loop();
+  }
 }, false);
 
 document.addEventListener('click', function(event){
-  console.log("HELLO")
-  timeStart = millis();
-  isScrolling = true;
-  loop();
+  if (time-timeStart > 30000) {
+    timeStart = millis();
+    isScrolling = true;
+    loop();
+  }
 });
