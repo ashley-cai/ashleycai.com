@@ -100,6 +100,7 @@
 <Intro/>
 
     <div id="product-container">
+        <CaseStudyCard imgSrc="{ base }/imgs/servicenow/servicenow-cover.png" imgAlt="" title="SERVICENOW" type="PRODUCT DESIGN" year="2023" link="{base}/projects/servicenow"/>
         <CaseStudyCard imgSrc="{ base }/imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL" type="PRODUCT DESIGN" year="2022" link="{base}/projects/cdk"/>
         <CaseStudyCard imgSrc="{ base }/imgs/hackatbrown/hack@browncover.png" imgAlt="" title="HACK@BROWN" type="VISUAL DESIGN" year="2022" link="{base}/projects/hackatbrown"/>
         <CaseStudyCard imgSrc="{ base }/imgs/flowerpower/uimockup-cover.jpeg" imgAlt="" title="FLOWER POWER" type="PRODUCT DESIGN" year="2020" link="{base}/projects/flowerpower"/>

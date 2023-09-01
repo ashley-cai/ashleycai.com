@@ -39,7 +39,7 @@
 <div class="intro-section">
     
     <div class="hero intro-text">
-        <div class="sentence">Ashley is an experience and information designer studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language, journalism, and the texture of the color green.</div><div class="sentence2">Currently at ServiceNow, previously at The Los Angeles Times.</div>
+        <div class="sentence">Ashley is a designer and developer studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language, journalism, and the texture of the color green.</div><div class="sentence2">Previously at ServiceNow and The Los Angeles Times.</div>
         <script src="{base}/js/dance.js" defer></script>
         <div class="link-container">
             <a class="link" href="mailto:ashley.lcai@gmail.com" target="_blank">Email</a> 
