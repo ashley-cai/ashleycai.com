@@ -1,3 +1,3 @@
 Portfolio site!
 
-check it out at ashleycai.come
+check it out ([here](https://ashleycai.com/))!
