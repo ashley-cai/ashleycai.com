@@ -152,7 +152,7 @@ function setup() {
 const interval = setInterval(function() {
   // method to be executed;
   time = millis();
-  if (time-timeStart > 30000) {
+  if (time-timeStart > 50000) {
     loop();
   }
 }, 5000);
@@ -486,8 +486,18 @@ function setupPlants() {
 }
 
 window.addEventListener('scroll', function ( event ) {
-	// Clear our timeout throughout the scroll
-  if (time-timeStart > 30000) {
+	// Clear out timeout throughout the scroll
+  if (time-timeStart > 100000) {
+    window.clearTimeout(scrolling);
+    timeStart = millis();
+    isScrolling = true;
+    loop();
+  }
+}, false);
+
+window.addEventListener('mousemove', function ( event ) {
+	// Clear out timeout throughout move
+  if (time-timeStart > 100000) {
     window.clearTimeout(scrolling);
     timeStart = millis();
     isScrolling = true;
@@ -496,7 +506,8 @@ window.addEventListener('scroll', function ( event ) {
 }, false);
 
 document.addEventListener('click', function(event){
-  if (time-timeStart > 30000) {
+  if (time-timeStart > 100000) {
+    window.clearTimeout(scrolling);
     timeStart = millis();
     isScrolling = true;
     loop();

@@ -18,13 +18,13 @@
             <br><br>
             In the past, I've worked at:
             <br>
-            <div class="indented">
+            <div class="light">
+                The Wall Street Journal<br>
                 ServiceNow<br>
                 The Los Angeles Times<br>
                 The Brown Daily Herald<br>
                 CDK Global<br>
-                HqO<br>
-                Heroes Jobs
+                +more
             </div>
             <br>
             Outside of work, my brain tends to be occupied by friendships, stories, dance, and languages.
@@ -91,9 +91,11 @@
         padding-left: 4vw;
         max-width: 800px;
     }
-    .indented {
-        padding-left: 2vw;
+
+    .light {
+        padding-left: 1vw;
     }
+
     .arrow-icon {
         width: 16px;
         height: 16px;

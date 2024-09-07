@@ -3,12 +3,12 @@
 </script>
 
 <div class="sticky-nav">
-    <div class="nav-item" id="product-nav">PRODUCT</div>
     <div class="nav-item" id="editorial-nav">EDITORIAL</div>
+    <div class="nav-item" id="product-nav">PRODUCT</div>
     <div class="nav-item" id="play-nav">PLAY</div>
 
-    <div class="nav-mobile" id="product-nav-mobile">PRODUCT</div>
     <div class="nav-mobile" id="editorial-nav-mobile">EDITORIAL</div>
+    <div class="nav-mobile" id="product-nav-mobile">PRODUCT</div>
     <div class="nav-mobile" id="play-nav-mobile">PLAY</div>
 </div>
 

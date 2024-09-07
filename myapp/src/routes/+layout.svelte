@@ -59,7 +59,7 @@ a {
 
  :global(html) {
         font-family: "GTAmerica";
-        background-color: white;
+        background-color: #F6F6F6;
     }
  
 </style>

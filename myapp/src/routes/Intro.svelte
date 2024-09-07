@@ -39,13 +39,12 @@
 <div class="intro-section">
     
     <div class="hero intro-text">
-        <div class="sentence">Ashley is a designer and developer studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language, journalism, and the texture of the color green.</div><div class="sentence2">Currently freelancing at the Pudding. Previously at ServiceNow and The Los Angeles Times.</div>
+        <div class="sentence">Ashley is a designer, developer, and reporter studying computer science, graphic design, and policy at Brown|RISD. She is fascinated by language and the color green.</div><div class="sentence2">Currently freelancing at the Pudding. Previously at the Wall Street Journal, ServiceNow and The L.A. Times.</div>
         <script src="{base}/js/dance.js" defer></script>
         <div class="link-container">
             <a class="link" href="mailto:ashley.lcai@gmail.com" target="_blank">Email</a> 
             <a class="link " href="https://linkedin.com/in/ashley-cai" target="_blank">Linkedin</a> 
             <a class="link " href="https://github.com/ashley-cai" target="_blank">Github</a>
-            <a class="link " href="https://www.browndailyherald.com/staff/ashley-cai" target="_blank">Writing</a>
         </div>
     </div>
     
