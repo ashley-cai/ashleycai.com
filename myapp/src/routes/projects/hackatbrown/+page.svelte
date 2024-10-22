@@ -76,7 +76,7 @@
     </div>
 </ParagraphSection>
 
-<Video src="{base}/imgs/hackatbrown/greenhouse.mp4"></Video>
+<Video preload="none" src="{base}/imgs/hackatbrown/greenhouse.mp4"></Video>
 
 </div>
 

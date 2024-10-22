@@ -9,16 +9,16 @@
     export let link = ""
 </script>
 
+<hr class="line-break">
+
 <div class="editorial-card">
     <div class="editorial-label-container">
-
         <a href={link} target="_blank">
             <div class="editorial-card-title-container">
                 <div class="editorial-card-title">{title}                 
                     <svg class="arrow-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1 19.5L19.5 1M19.5 1H5M19.5 1V15" stroke="black"/>
                 </svg></div>
-
             </div>
         </a>
             
@@ -27,6 +27,7 @@
         <div class="editorial-card-type">{type}</div>
     </div>
 </div>
+
 
 <style>
     @media (max-width: 800px) {
@@ -38,7 +39,8 @@
     .editorial-card {
         display: flex;
         max-height: 20vw;
-        margin-bottom: 8vh;
+        margin-top: 3vh;
+        margin-bottom: 4vh;
     }
 
     .arrow-icon {

@@ -119,7 +119,7 @@
     </div>
 </ParagraphSection>
 
-<Video src="{base}/imgs/cdk/media1.mp4" title="HIGH FIDELITY PROTOTYPE"></Video>
+<Video preload="none" src="{base}/imgs/cdk/media1.mp4" title="HIGH FIDELITY PROTOTYPE"></Video>
 
 <ParagraphSection sectionLabel="REFLECTION">
     <div slot="paragraph">
