@@ -105,7 +105,7 @@
         <EditorialCard src="{ base }/imgs/editorial/fanfic-small.mp4" alt="" title="WHO GETS SHIPPED, AND WHY?" type="DATA, REPORTING, DESIGN" publication="THE PUDDING" year="2024" description="Using 11 years of relationSHIP data from Archive of Our Own, we break down why fanfic is hella gay and goes well beyond the source material. Just like fanfic, it’s told in chapters: 1. Slash, 2. Canon, 3. Real Person Fiction." link ="https://pudding.cool/2024/10/fanfic/"/>
         <EditorialCard src="{ base }/imgs/editorial/breaking-small.mp4" alt="" title="BREAKING IS IN THE OLYMPICS—AND IT COMES WITH ITS OWN SECRET LANGUAGE" type="REPORTING, DESIGN, ANIMATION" year="2024" publication="THE WALL STREET JOURNAL" description="How breakers use hand signals and gestures to intimidate opponents and influence judges." link = "https://www.wsj.com/sports/olympics/breakdancing-intimidating-opponents-paris-2024-5c614c82"/>
         <EditorialCard src="{ base }/imgs/editorial/pathtoprofessorship-small.mp4" alt="" title="THE AVENUE TO ACADEMIA AT BROWN UNIVERSITY" type="REPORTING, DESIGN, DEVELOPMENT" year="2024" publication="BROWN DAILY HERALD" description="The Herald analyzed data about 1095 faculty in undergraduate-focused departments and spoke to faculty to make note of some of the most common and uncommon paths taken to a faculty appointment." link = "https://projects.browndailyherald.com/2024/03/05/avenue-to-academia-brown-university/"/>
-        <EditorialCard src="{ base }/imgs/editorial/songwriters-small.mp4" alt="" title="WOMEN ARE SUPERSTARS ON STAGE, BUT STILL RARELY GET TO WRITE SONGS" type="ART DIRECTION, DESIGN" publication="THE PUDDING" year="2023" description="Most hit songs are written by all men. How often has a top 5 hit been written by *only* women in the last 10 years? It’s likely rarer than you think." link ="https://pudding.cool/2023/07/songwriters/"/>
+        <EditorialCard src="{ base }/imgs/editorial/songwriters-pudding-small.mp4" alt="" title="WOMEN ARE SUPERSTARS ON STAGE, BUT STILL RARELY GET TO WRITE SONGS" type="ART DIRECTION, DESIGN" publication="THE PUDDING" year="2023" description="Most hit songs are written by all men. How often has a top 5 hit been written by *only* women in the last 10 years? It’s likely rarer than you think." link ="https://pudding.cool/2023/07/songwriters/"/>
         <EditorialCard src="{ base }/imgs/editorial/thayerst-small.mp4" alt="" title="THE EVOLUTION OF THAYER STREET" type="MAPPING, ART DIRECTION, DESIGN, DEVELOPMENT" year="2023" publication="BROWN DAILY HERALD" description="The Herald mapped business turnover on Thayer Street since 2000 through interactive timelines tracing year-by-year history of the street." link="https://projects.browndailyherald.com/2023/03/05/thayer-street-history/"/>
         <EditorialCard src="{ base }/imgs/editorial/repowerthewest-small.mp4" alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" publication="LOS ANGELES TIMES" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." link = "https://www.latimes.com/projects/repowering-the-west/"/>
         <EditorialCard src="{ base }/imgs/editorial/aichangeart-small.mp4" alt="" title="HOW AI-GENERATED ART IS CHANGING THE CONCEPT OF ART ITSELF" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="Artificial-intelligence generated artwork has made vast strides in recent years, but many artists don’t even consider it art. To some, it opens up vast new avenues of creative exploration, and to others, it threatens their livelihoods." link = "https://www.latimes.com/projects/artificial-intelligence-generated-art-ownership-bias-dall-e-midjourney/"/>
@@ -158,7 +158,7 @@
         text-align: center;
     }
 
-    :global(a:hover) {
+    /* :global(a:hover) {
         color: var(--black) !important;
         text-shadow: 0 0 5px var(--light-green);
     }
@@ -166,7 +166,7 @@
     a {
         text-decoration: none !important;
         color: var(--black);
-    }
+    } */
 
     #play-container{
         min-height: 300vh;

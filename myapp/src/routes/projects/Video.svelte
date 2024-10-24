@@ -5,7 +5,7 @@
 
 <div class="video-container">
     <div class = "section-label">{title}</div>
-    <video preload="none" class="video-loop" autoplay loop muted webkit-playsinline playsinline>
+    <video class="video-loop" autoplay loop muted webkit-playsinline playsinline>
         <source src={src} type="video/mp4">
         <track kind="captions">
     </video>

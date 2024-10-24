@@ -487,7 +487,7 @@ function setupPlants() {
 
 window.addEventListener('scroll', function ( event ) {
 	// Clear out timeout throughout the scroll
-  if (time-timeStart > 100000) {
+  if (time-timeStart > 30000) {
     window.clearTimeout(scrolling);
     timeStart = millis();
     isScrolling = true;
@@ -506,7 +506,7 @@ window.addEventListener('mousemove', function ( event ) {
 }, false);
 
 document.addEventListener('click', function(event){
-  if (time-timeStart > 100000) {
+  if (time-timeStart > 30000) {
     window.clearTimeout(scrolling);
     timeStart = millis();
     isScrolling = true;
