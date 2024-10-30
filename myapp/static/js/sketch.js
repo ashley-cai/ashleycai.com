@@ -495,16 +495,6 @@ window.addEventListener('scroll', function ( event ) {
   }
 }, false);
 
-window.addEventListener('mousemove', function ( event ) {
-	// Clear out timeout throughout move
-  if (time-timeStart > 100000) {
-    window.clearTimeout(scrolling);
-    timeStart = millis();
-    isScrolling = true;
-    loop();
-  }
-}, false);
-
 document.addEventListener('click', function(event){
   if (time-timeStart > 30000) {
     window.clearTimeout(scrolling);
