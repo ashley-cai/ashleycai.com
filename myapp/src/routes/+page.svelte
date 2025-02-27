@@ -1,192 +1,285 @@
-<script>
-    import index from './index.svelte';
-    import StickyNav from './StickyNav.svelte';
-    import Intro from './Intro.svelte';
-    import CaseStudyCard from './CaseStudyCard.svelte';
-	import {onMount} from 'svelte'
-	import EditorialCard from './EditorialCard.svelte';
-    import PlayContainer from './PlayContainer.svelte';
-    import Plants from './Plants.svelte';
-    import { base } from '$app/paths';
-    
+<script lang="ts">
+      import { onMount } from 'svelte';
+      import index from './index.svelte';
+
+      let resetPlants: () => void;
+
     onMount(() => {
-        // change highlighting for sticky nav section
+    const canvas = document.getElementById('mossCanvas');
+    console.log(canvas)
+    const ctx = canvas.getContext('2d');
+    const mossSize = 5; // Size of the "pixel"
+    const growthRate = 0.001; // Growth rate (probability of growing each frame)
 
-        ScrollTrigger.create({
-            trigger: '#product-container',
-            toggleClass: {targets: "#product-nav", className: 'current-section'},
-            start: 'top center',
-            end: 'bottom bottom',
-            onLeaveBack: 'reverse',
-        })
+    // Resize canvas to fill the screen
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
-        ScrollTrigger.create({
-            trigger: '#product-container',
-            toggleClass: {targets: "#product-nav-mobile", className: 'current-section-mobile'},
-            start: 'top center',
-            end: 'bottom bottom',
-            onLeaveBack: 'reverse',
-        })
+    // Directions for branching out
+    const directions = [
+      [-1, 0], [1, 0], [0, -1], [0, 1], // Left, Right, Up, Down
+      [-1, -1], [1, -1], [-1, 1], [1, 1] // Diagonal directions
+    ];
 
-        ScrollTrigger.create({
-            trigger: '#editorial-container',
-            toggleClass: {targets: "#editorial-nav", className: 'current-section'},
-            start: 'top center',
-            end: 'bottom bottom',
-            onLeaveBack: 'reverse',
-        })
+    // Grid to track moss growth
+    let mossGrid = [];
 
-        ScrollTrigger.create({
-            trigger: '#editorial-container',
-            toggleClass: {targets: "#editorial-nav-mobile", className: 'current-section-mobile'},
-            start: 'top center',
-            end: 'bottom bottom',
-            onLeaveBack: 'reverse',
-        })
+    // Different shades of green for moss
+    const greenShades = [
+      "#7AA039", "#A1B340", "#B2DC50"
+    ];
 
-        ScrollTrigger.create({
-            trigger: '#play-container',
-            toggleClass: {targets: "#play-nav", className: 'current-section'},
-            start: 'top center',
-            end: 'bottom bottom',
-            onLeaveBack: 'reverse',
-        })
+    // Initialize the moss grid
+    function initMossGrid() {
+      const cols = Math.floor(canvas.width / mossSize);
+      const rows = Math.floor(canvas.height / mossSize);
+      for (let i = 0; i < rows; i++) {
+        mossGrid[i] = [];
+        for (let j = 0; j < cols; j++) {
+          mossGrid[i][j] = false; // No moss initially
+        }
+      }
+    }
 
-        ScrollTrigger.create({
-            trigger: '#play-container',
-            toggleClass: {targets: "#play-nav-mobile", className: 'current-section-mobile'},
-            start: 'top center',
-            end: 'bottom bottom',
-            onLeaveBack: 'reverse',
-        })
+    // Draw moss on the grid at (x, y) with a random green shade
+    function drawMoss(x, y) {
+      const randomGreen = greenShades[Math.floor(Math.random() * greenShades.length)];
+      ctx.fillStyle = randomGreen;
+      ctx.fillRect(x * mossSize, y * mossSize, mossSize, mossSize);
+        if (y < mossGrid.length && x < mossGrid[0].length){
+        mossGrid[y][x] = true;
+        }
+    }
 
-        //scroll to with sticky nav
-        const productNav = document.querySelector('#product-nav');
-        const editorialNav = document.querySelector('#editorial-nav');
-        const playNav = document.querySelector('#play-nav');
+    // Growth queue (this holds the points where the moss is currently present)
+    let growthQueue = [];
 
-        productNav.addEventListener('click', () => {
-        gsap.to(window, {
-            duration: .4,
-            scrollTo: {y: "#product-container", offsetY: 100}
+    // Simulate moss growth and branching from the hovered/clicked position
+    function growMoss() {
+      const newGrowthQueue = [];
+
+      // For each point in the queue, attempt to branch out
+      growthQueue.forEach(point => {
+        directions.forEach(([dx, dy]) => {
+          const newX = point.x + dx;
+          const newY = point.y + dy;
+
+          // Check bounds and if the point is already mossy
+          if (newY < mossGrid.length && newX < mossGrid[0].length){
+            if (newX >= 0 && newX < canvas.width / mossSize && newY >= 0 && newY < canvas.height / mossSize && !mossGrid[newY][newX]) {
+                if (Math.random() < growthRate) {
+                drawMoss(newX, newY);
+                newGrowthQueue.push({ x: newX, y: newY });
+                }
+            }
+        }
         });
-        });
+      });
 
-        editorialNav.addEventListener('click', () => {
-        gsap.to(window, {
-            duration: .4,
-            scrollTo: {y: "#editorial-container", offsetY: 100}
-        });
-        });
+      // Add newly grown points to the growth queue for the next frame
+      growthQueue.push(...newGrowthQueue);
+    }
 
-        playNav.addEventListener('click', () => {
-        gsap.to(window, {
-            duration: .4,
-            scrollTo: {y: "#play-container", offsetY: 100}
-        });
-        });
-    })
+    // Mouse hover or click event listener to trigger moss growth
+    canvas.addEventListener('mousemove', function(e) {
+      const x = Math.floor(e.clientX / mossSize);
+      const y = Math.floor(e.clientY / mossSize);
+      if (!mossGrid[y][x]) { // Only start growth if that pixel doesn't have moss
+        drawMoss(x, y);
+        growthQueue.push({ x, y }); // Add this point to the growth queue
+      }
+    });
+
+    canvas.addEventListener('click', function(e) {
+      const x = Math.floor(e.clientX / mossSize);
+      const y = Math.floor(e.clientY / mossSize);
+      if (!mossGrid[y][x]) { // Only start growth if that pixel doesn't have moss
+        drawMoss(x, y);
+        growthQueue.push({ x, y }); // Add this point to the growth queue
+      }
+    });
+
+    // Add random growth to keep the moss expanding
+    function addRandomGrowth() {
+      const randomX = Math.floor(Math.random() * (canvas.width / mossSize));
+      const randomY = Math.floor(Math.random() * (canvas.height / mossSize));
+        if (randomY < mossGrid.length && randomX < mossGrid[0].length){
+            if (!mossGrid[randomY][randomX]) {
+                drawMoss(randomX, randomY);
+                growthQueue.push({ x: randomX, y: randomY });
+            }
+        }
+    }
+
+    // Animation loop
+    function animate() {
+      growMoss();
+      if (Math.floor(Math.random() * 200) == 42){
+        addRandomGrowth(); // Keep adding random growth
+        }
+      requestAnimationFrame(animate); // Continue growing moss each frame
+    }
+
+    resetPlants = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        growthQueue = [];
+        initMossGrid();
+    }
+
+    // Initialize the grid and start the animation
+    initMossGrid();
+    animate(); // Start the animation loop
+});
+
+
 
 </script>
 
-<Plants/>
-<StickyNav/>
-<div id="body">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollToPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js" integrity="sha512-3RlxD1bW34eFKPwj9gUXEWtdSMC59QqIqHnD8O/NoTwSJhgxRizdcFVQhUMFyTp5RwLTDL0Lbcqtl8b7bFAzog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<div class="mossContainer">
+    <canvas id="mossCanvas"></canvas>
+</div>
 
-<Intro/>
-
-    <div id="editorial-container">
-        <EditorialCard src="{ base }/imgs/editorial/powerdemandviz-small.mp4" alt="" title="HOW BOOMING ELECTRICITY DEMAND IS STALLING EFFORTS TO RETIRE COAL AND GAS" type="REPORTING, DESIGN, CODE" year="2024" publication="THE WALL STREET JOURNAL" description="Companies are redoing the math behind the green-energy transition amid the rise of AI data centers." link = "https://www.wsj.com/business/energy-oil/electricity-demand-coal-gas-retirement-charts-dd07029a"/>
-        <EditorialCard src="{ base }/imgs/editorial/ailapoem-small.mp4" alt="" title="HOW A.I. SEES L.A." type="ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="In this visual poem, we stitched together evocative texts about Los Angeles as a way of articulating our city’s bizarre beauty and uncanny oddities. Then we asked A.I. to imagine them. It’s as weird as you might imagine." link = "https://www.latimes.com/projects/los-angeles-poetry-midjourney-artifical-intelligence-literature/"/>
-        <EditorialCard src="{ base }/imgs/editorial/fanfic-small.mp4" alt="" title="WHO GETS SHIPPED, AND WHY?" type="DATA, REPORTING, DESIGN" publication="THE PUDDING" year="2024" description="Using 11 years of relationSHIP data from Archive of Our Own, we break down why fanfic is hella gay and goes well beyond the source material. Just like fanfic, it’s told in chapters: 1. Slash, 2. Canon, 3. Real Person Fiction." link ="https://pudding.cool/2024/10/fanfic/"/>
-        <EditorialCard src="{ base }/imgs/editorial/breaking-small.mp4" alt="" title="BREAKING IS IN THE OLYMPICS—AND IT COMES WITH ITS OWN SECRET LANGUAGE" type="REPORTING, DESIGN, ANIMATION" year="2024" publication="THE WALL STREET JOURNAL" description="How breakers use hand signals and gestures to intimidate opponents and influence judges." link = "https://www.wsj.com/sports/olympics/breakdancing-intimidating-opponents-paris-2024-5c614c82"/>
-        <EditorialCard src="{ base }/imgs/editorial/pathtoprofessorship-small.mp4" alt="" title="THE AVENUE TO ACADEMIA AT BROWN UNIVERSITY" type="REPORTING, DESIGN, DEVELOPMENT" year="2024" publication="BROWN DAILY HERALD" description="The Herald analyzed data about 1095 faculty in undergraduate-focused departments and spoke to faculty to make note of some of the most common and uncommon paths taken to a faculty appointment." link = "https://projects.browndailyherald.com/2024/03/05/avenue-to-academia-brown-university/"/>
-        <EditorialCard src="{ base }/imgs/editorial/songwriters-pudding-small.mp4" alt="" title="WOMEN ARE SUPERSTARS ON STAGE, BUT STILL RARELY GET TO WRITE SONGS" type="ART DIRECTION, DESIGN" publication="THE PUDDING" year="2023" description="Most hit songs are written by all men. How often has a top 5 hit been written by *only* women in the last 10 years? It’s likely rarer than you think." link ="https://pudding.cool/2023/07/songwriters/"/>
-        <EditorialCard src="{ base }/imgs/editorial/thayerst-small.mp4" alt="" title="THE EVOLUTION OF THAYER STREET" type="MAPPING, ART DIRECTION, DESIGN, DEVELOPMENT" year="2023" publication="BROWN DAILY HERALD" description="The Herald mapped business turnover on Thayer Street since 2000 through interactive timelines tracing year-by-year history of the street." link="https://projects.browndailyherald.com/2023/03/05/thayer-street-history/"/>
-        <EditorialCard src="{ base }/imgs/editorial/repowerthewest-small.mp4" alt="" title="REPOWERING THE WEST" type="MAPPING, DESIGN, CODE, ANIMATION" year="2022" publication="LOS ANGELES TIMES" description="Clean energy projects are badly needed to fight climate change — but they can fuel intense opposition in the communities where they’re built. We’re spotlighting examples of that tension across the West, with an eye toward finding solutions." link = "https://www.latimes.com/projects/repowering-the-west/"/>
-        <EditorialCard src="{ base }/imgs/editorial/aichangeart-small.mp4" alt="" title="HOW AI-GENERATED ART IS CHANGING THE CONCEPT OF ART ITSELF" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="LOS ANGELES TIMES" description="Artificial-intelligence generated artwork has made vast strides in recent years, but many artists don’t even consider it art. To some, it opens up vast new avenues of creative exploration, and to others, it threatens their livelihoods." link = "https://www.latimes.com/projects/artificial-intelligence-generated-art-ownership-bias-dall-e-midjourney/"/>
-        <!-- <EditorialCard src="{ base }/imgs/editorial/percent.mp4" alt="" title="CLAIM OUR PERCENT" type="RESEARCH, DESIGN, DEVELOPMENT" year="2022" publication="PERSONAL PROJECT" description="I developed an interactive data visualization on labor history and guide to unionizing in the modern workplace." link="https://ashley-cai.github.io/claim-our-percent"/> -->
-        <EditorialCard src="{ base }/imgs/editorial/illiteracy.mp4" alt="" title="DIASPORATIC TEXTS IN ILLITERACY" type="RESEARCH, DESIGN, DEVELOPMENT" year="2023" publication="PERSONAL PROJECT" description="I built an interactive experience about the guilt, struggle, and shame of being somewhat illiterate in Chinese." link = "https://ashley-cai.github.io/illiteracy-souvenirs"/>
-        <EditorialCard src="{ base }/imgs/editorial/brownproperty-small.mp4" alt="" title="HOW BROWN'S CAMPUS AND PROPERTY HOLDINGS HAVE CHANGED, FROM 1770 TO TODAY" type="RESEARCH, ART DIRECTION, DESIGN, DEVELOPMENT" year="2022" publication="BROWN DAILY HERALD" description="Explore how Brown expanded from two lots between Waterman and George streets to a campus that spans the city of Providence." link="https://projects.browndailyherald.com/2022/12/13/brown-property-footprint/"/>
-        <div class="other-contribs">
-            <a href="{ base }/projects/editorial">
-            <div class="other-contribs-div">OTHER CONTRIBUTIONS</div>        </a>
-
-            <svg class="arrow-icon-contrib" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 19.5L19.5 1M19.5 1H5M19.5 1V15" stroke="#B4BCCC"/>
-            </svg>
-        </div>
+<div class="info-container">
+    <div class="info">
+        Ashley Cai studies computer science,<hr class="hr-mobile"> graphic design, and policy at Brown|RISD.<hr class="hr-mobile">
+        <hr class="hr-desktop">
+        She loves data viz, language, the color green,<hr class="hr-mobile"> and updating her website(slowly). 
+        <hr class="hr-desktop"> <hr class="hr-mobile">
+        Reach out via email any time!
+        <hr class="hr-desktop"><hr class="hr-mobile">
+        <br>
+        <hr class="hr-desktop"><hr class="hr-mobile">
+        <a class="links" target="_blank" href="https://docs.google.com/document/d/1pW_UON6NHvl6m8OzInDWrDWGuJSLm0G6A6uxG9lSbbQ/edit?tab=t.0">cv</a> 
+        <a class="links" target="_blank" href="mailto:ashley.lcai@gmail.com">email</a> 
+        <a class="links" target="_blank" href="https://www.figma.com/design/az7mx903frtov9ZkSJBpZx/Inspiration-COLLECTIONS?node-id=0-1&t=YQ3daqOwNCIBXpOn-1">collections</a>
+        <a class="links" on:click={resetPlants} href="">mow lawn</a>
+        <hr class="hr-desktop"><hr class="hr-mobile">
     </div>
-
-    <div id="product-container">
-        <CaseStudyCard imgSrc="{ base }/imgs/servicenow/servicenow-cover.png" imgAlt="" title="SERVICENOW" type="PRODUCT DESIGN" year="2023" link="{base}/projects/servicenow"/>
-        <CaseStudyCard imgSrc="{ base }/imgs/cdk/TestDrive-cover.png" imgAlt="" title="CDK GLOBAL" type="PRODUCT DESIGN" year="2022" link="{base}/projects/cdk"/>
-        <CaseStudyCard imgSrc="{ base }/imgs/hackatbrown/hack@browncover.png" imgAlt="" title="HACK@BROWN" type="VISUAL DESIGN" year="2022" link="{base}/projects/hackatbrown"/>
-        <CaseStudyCard imgSrc="{ base }/imgs/flowerpower/uimockup-cover.jpeg" imgAlt="" title="FLOWER POWER" type="PRODUCT DESIGN" year="2020" link="{base}/projects/flowerpower"/>
+    <div class="work-experience">
+        Previously @
+        <br> 
+        Wall Street Journal
+        <br> 
+        The Pudding
+        <br> 
+        ServiceNow
+        <br> 
+        The Los Angeles Times
     </div>
-
-    <div id="play-container">
-        <PlayContainer/>
-    </div>
-
-    <div class="footer">Site developed with love and Svelte. <br> Heavily inspired by <a href = "https://taliacotton.com/">Talia Cotton</a> and <a href="https://softnet.works/">Bhavik Singh</a>. </div>
-
 </div>
 
 <style>
-    #body {
-        width: 90vw;
-        margin: auto;
-        margin-top: 20vh;
-        font-size: 1em;
+    .hr-desktop {
+        height: 1px;
+        color: #848484;
+        background: #848484;
+        width: 92vw;
+        font-size: 0;
+        border: 0;
     }
 
-    #editorial-container {
-        padding-bottom: 30vh;
+    .hr-mobile {
+        height: 0;
+        font-size: 0;
+        border: 0;
+        display: none;
     }
 
-    :global(canvas) {
-        pointer-events: none;
-    }
-
-    .footer {
-        margin-top: 20vh;
-        text-align: center;
-    }
-
-    /* :global(a:hover) {
-        color: var(--black) !important;
-        text-shadow: 0 0 5px var(--light-green);
+    .links{
+        margin-right: 1em;
+        color: black;
+        pointer-events:all;
     }
     
-    a {
-        text-decoration: none !important;
-        color: var(--black);
-    } */
-
-    #play-container{
-        min-height: 300vh;
-    }
-    
-    .other-contribs {
+    .info-container {
+        top: 0;
+        left: 0;
+        position: absolute;
         display: flex;
-        /* justify-content: center; */
         flex-direction: row;
-        align-items: center;
-        float: right;
+        width: 100vw;
+        pointer-events: none;
+        justify-content: space-between;
+        margin-top: 4vh;
     }
 
-    .other-contribs-div {
-        color: var(--medium-gray) !important;
+    .info {
+        width: 64vw;
+        font-family: 'GTAmerica';
+        margin: 4vw;
+        margin-top: 0;
+        margin-right: 0;
+        min-width: 580px;
     }
 
-    .arrow-icon-contrib {
-        width: 12px;
-        height: 12px;
-        padding-left: .5vw;
+    @media (max-width: 830px) {
+        .hr-desktop {
+            height: 0px;
+        }
+        .info-container {
+            flex-direction: column;
+            margin-left: 4vw;
+            font-size: 1em;
+            width: 92vw;
+        }
+        .info {
+            min-width: auto;
+            margin:0;
+            width: auto;
+        }
+        .work-experience {
+            display: none;
+        }
+
+        .hr-mobile {
+            height: 1px;
+            color: #848484;
+            background: #848484;
+            width: 92vw;
+            font-size: 0;
+            border: 0;
+            display: block;
+        }
     }
-</style>
+
+    @media (max-width: 600px) {
+        .info-container {
+            font-size: .92em;
+            width: 84vw;
+            margin-left: 8vw;
+        }
+        .hr-mobile {
+            width: 80vw;
+        }
+        .hr-mobile {
+            width: 84vw;
+        }
+    }
+
+    
+
+    .info:after {
+        mix-blend-mode: difference;
+        /* not working */
+    }
+
+    .work-experience {
+        margin: 4vw;
+        margin-left: 0;
+        margin-top: 0;
+        width: 20vw;
+        text-align: right;
+        font-family: 'GTAmerica';
+        line-height: 1.23em;
+        min-width: 165px;
+    }
+
+    :global(body) {
+        margin: 0;
+        padding: 0;
+    }
+    
+    :global(html) {
+      background-color: #B2B2B2;
+    }
+  </style>
