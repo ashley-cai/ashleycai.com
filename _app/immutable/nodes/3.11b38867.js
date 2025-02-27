@@ -1,4 +1,4 @@
-import{S as de,i as ge,s as he,k as a,a as _,q as o,L as oe,l as r,m as p,c as w,r as i,h as v,M as ie,n as s,N as be,b as ue,G as e,H as re}from"../chunks/index.11c0bfcc.js";import{b as ve}from"../chunks/paths.3bba541b.js";/* empty css                                                        */function pe(ce){let d,b,u,se,I,t,R,D,k,x,S,G,T,E,H,A,L,n,M,N,V,W,z,O,j,q,C,J,U,K,P,Q,F,X,Y,Z,$,ee,te,g,le,h,m;return{c(){d=a("div"),b=a("div"),u=a("img"),I=_(),t=a("div"),R=o(`Hello! I'm Ashley.
+import{S as de,i as ge,s as he,k as a,a as _,q as o,L as oe,l as r,m as p,c as w,r as i,h as v,M as ie,n as s,N as be,b as ue,G as e,H as re}from"../chunks/index.11c0bfcc.js";import{b as ve}from"../chunks/paths.093fa4d4.js";/* empty css                                                        */function pe(ce){let d,b,u,se,I,t,R,D,k,x,S,G,T,E,H,A,L,n,M,N,V,W,z,O,j,q,C,J,U,K,P,Q,F,X,Y,Z,$,ee,te,g,le,h,m;return{c(){d=a("div"),b=a("div"),u=a("img"),I=_(),t=a("div"),R=o(`Hello! I'm Ashley.
             `),D=a("br"),k=o(`
             I'm a designer, developer, and journalist with a love for deep diving into topics.
             `),x=a("br"),S=a("br"),G=o(`
